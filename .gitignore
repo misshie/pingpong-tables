@@ -1,0 +1,95 @@
+# ===================================================================
+# General ignores for OS, IDEs, and local environment files
+# ===================================================================
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# Log files
+*.log
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# ===================================================================
+# Frontend (Vue 3 / TypeScript / Node.js)
+# Located in /frontend
+# ===================================================================
+frontend/node_modules/
+frontend/dist/
+frontend/.DS_Store
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# TypeScript cache
+*.tsbuildinfo
+
+
+# ===================================================================
+# Backend (Python)
+# Located in /backend
+# ===================================================================
+# Python virtual environments
+backend/.venv
+backend/venv
+backend/env
+backend/gm_env
+
+# Python caches and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+backend/build/
+backend/dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+htmlcov/
+nosetests.xml
+coverage.xml
+
+# Mypy cache
+.mypy_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+
+# ===================================================================
+# Project-Specific Data
+# These directories should exist, but their contents are provided
+# by the user and should not be committed to the repository.
+# To track the empty directories, place a .gitkeep file inside them.
+# ===================================================================
+backend/data/*
+backend/saved_models/*
+
+# Allow tracking of the empty directories via .gitkeep
+!backend/data/.gitkeep
+!backend/saved_models/.gitkeep

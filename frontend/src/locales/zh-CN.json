@@ -1,0 +1,73 @@
+{
+  "appTitle": "GestaltMatcher GUI",
+  "nav": {
+    "analysis": "分析",
+    "export": "导出结果",
+    "settings": "设置",
+    "about": "关于"
+  },
+ "startPage": {
+    "welcome": "欢迎来到",
+    "getStarted": "开始",
+    "pressAnalysis": "请按左侧导航栏上的<strong>分析</strong>按钮开始。"
+  },
+  "analysisDialog": {
+    "title": "上传分析文件",
+    "labelIdle": "将文件拖放到此处或 <span class='filepond--label-action'> 浏览 </span>",
+    "status": {
+      "noFile": "未选择文件。",
+      "uploading": "编码和上传中...",
+      "success": "上传成功。",
+      "failure": "上传失败。"
+    }
+  },
+  "resultsPage": {
+    "title": "分析结果",
+    "modelVersion": "模型版本",
+    "galleryVersion": "图库版本",
+    "tabs": {
+      "genes": "基因",
+      "syndromes": "综合征",
+      "patients": "患者"
+    },
+    "search": {
+      "genes": "搜索基因",
+      "syndromes": "搜索综合征",
+      "patients": "搜索患者"
+    }
+  },
+  "settingsDialog": {
+    "title": "设置",
+    "subtitle": "配置API服务器连接详情。",
+    "apiServer": "API服务器",
+    "host": "主机URI",
+    "port": "端口",
+    "auth": "认证",
+    "user": "用户名",
+    "password": "密码"
+  },
+  "exportDialog": {
+    "title": "导出结果",
+    "subtitle": "选择您偏好的导出格式。",
+    "excel": {
+      "title": "Excel格式",
+      "description": "将所有结果表（基因、综合征、患者）导出到一个包含多个工作表的.xlsx文件中。",
+      "button": "全部导出到Excel"
+    },
+    "tsv": {
+      "title": "制表符分隔值(TSV)格式",
+      "description": "将单个结果表导出为.tsv文件。",
+      "label": "选择要导出的数据集",
+      "button": "将所选导出为TSV"
+    }
+  },
+  "footer": {
+    "caution": "GestaltMatcher和GestaltMatcher GUI仅用于研究和教育目的。"
+  },
+  "common": {
+    "cancel": "取消",
+    "submit": "提交",
+    "save": "保存更改",
+    "clear": "清除结果"
+  }
+}

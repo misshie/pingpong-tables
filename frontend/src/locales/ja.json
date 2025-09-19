@@ -1,0 +1,74 @@
+{
+  "appTitle": "GestaltMatcherGUI",
+  "nav": {
+    "analysis": "解析",
+    "export": "エクスポート",
+    "settings": "設定",
+    "about": "情報"
+  },
+    "startPage": {
+    "welcome": "ようこそ",
+    "getStarted": "はじめに",
+    "pressAnalysis": "左のナビゲーションバーにある<strong>解析</strong>ボタンを押して、解析を開始してください。"
+  },
+  "analysisDialog": {
+    "title": "解析ファイルのアップロード",
+    "labelIdle": "ここにファイルをドラッグ＆ドロップするか、<span class='filepond--label-action'>参照</span>してください",
+    "status": {
+      "noFile": "ファイルが選択されていません。",
+      "uploading": "エンコードとアップロード中...",
+      "success": "アップロードに成功しました。",
+      "failure": "アップロードに失敗しました。"
+    }
+  },
+  "resultsPage": {
+    "title": "解析結果",
+    "modelVersion": "モデルバージョン",
+    "galleryVersion": "ギャラリーバージョン",
+    "tabs": {
+      "genes": "遺伝子",
+      "syndromes": "症候群",
+      "patients": "患者"
+    },
+    "search": {
+      "genes": "遺伝子を検索",
+      "syndromes": "症候群を検索",
+      "patients": "症例を検索"
+    }
+  },
+  "settingsDialog": {
+    "title": "設定",
+    "subtitle": "APIサーバーの接続詳細を設定します。",
+    "apiServer": "APIサーバー",
+    "host": "ホストURI",
+    "port": "ポート",
+    "auth": "認証",
+    "user": "ユーザー名",
+    "password": "パスワード"
+  },
+  "exportDialog": {
+    "title": "結果のエクスポート",
+    "subtitle": "希望のエクスポート形式を選択してください。",
+    "excel": {
+      "title": "Excel形式",
+      "description": "すべての結果テーブル（遺伝子、症候群、症例）を、複数のシートを持つ単一の.xlsxファイルにエクスポートします。",
+      "button": "すべてExcelにエクスポート"
+    },
+    "tsv": {
+      "title": "タブ区切り値（TSV）形式",
+      "description": "単一の結果テーブルを.tsvファイルとしてエクスポートします。",
+      "label": "エクスポートするデータセットを選択",
+      "button": "選択したものをTSVでエクスポート"
+    }
+  },
+
+    "footer": {
+    "caution": "GestaltMatcher と GestaltMatcherGUI は研究および教育目的でのみに限った利用されることを意図しています。"
+  },
+  "common": {
+    "cancel": "キャンセル",
+    "submit": "送信",
+    "save": "変更を保存",
+    "clear": "結果をクリア"
+  }
+}

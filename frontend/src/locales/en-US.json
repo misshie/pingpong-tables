@@ -1,0 +1,74 @@
+{
+  "appTitle": "GestaltMatcher GUI",
+  "nav": {
+    "analysis": "Analysis",
+    "export": "Export Results",
+    "settings": "Settings",
+    "about": "About"
+  },
+  "startPage": {
+    "welcome": "Welcome to",
+    "getStarted": "Get Started",
+    "pressAnalysis": "Press the <strong>Analysis</strong> button on the left navigation bar to start."
+  },
+  "analysisDialog": {
+    "title": "Upload Analysis File",
+    "labelIdle": "Drag & Drop your file here or <span class='filepond--label-action'> Browse </span>",
+    "status": {
+      "noFile": "No file selected.",
+      "uploading": "Encoding and uploading...",
+      "success": "Upload successful.",
+      "failure": "Upload failed."
+    }
+  },
+  "resultsPage": {
+    "title": "Analysis Result",
+    "modelVersion": "Model Version",
+    "galleryVersion": "Gallery Version",
+    "tabs": {
+      "genes": "Genes",
+      "syndromes": "Syndromes",
+      "patients": "Patients"
+    },
+    "search": {
+      "genes": "Search Genes",
+      "syndromes": "Search Syndromes",
+      "patients": "Search Patients"
+    }
+  },
+  "settingsDialog": {
+    "title": "Settings",
+    "subtitle": "Configure API server connection details.",
+    "apiServer": "API Server",
+    "host": "Host URI",
+    "port": "Port",
+    "auth": "Authentication",
+    "user": "Username",
+    "password": "Password"
+  },
+  "exportDialog": {
+    "title": "Export Results",
+    "subtitle": "Choose your preferred export format.",
+    "excel": {
+      "title": "Excel Format",
+      "description": "Export all result tables (Genes, Syndromes, Patients) into a single .xlsx file with multiple sheets.",
+      "button": "Export All to Excel"
+    },
+    "tsv": {
+      "title": "Tab-Separated Values (TSV) Format",
+      "description": "Export a single result table as a .tsv file.",
+      "label": "Select dataset to export",
+      "button": "Export Selected as TSV"
+    }
+  },
+  "footer": {
+    "caution": "GestaltMatcher and GestaltMatcher GUI are intended for research and educational purposes only."
+  },
+
+  "common": {
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "save": "Save Changes",
+    "clear": "Clear Result"
+  }
+}

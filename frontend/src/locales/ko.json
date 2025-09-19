@@ -1,0 +1,73 @@
+{
+  "appTitle": "GestaltMatcher GUI",
+  "nav": {
+    "analysis": "분석",
+    "export": "결과 내보내기",
+    "settings": "설정",
+    "about": "정보"
+  },
+  "startPage": {
+    "welcome": "환영합니다",
+    "getStarted": "시작하기",
+    "pressAnalysis": "왼쪽 탐색 모음에서 <strong>분석</strong> 버튼을 눌러 시작하세요."
+  },
+  "analysisDialog": {
+    "title": "분석 파일 업로드",
+    "labelIdle": "이곳에 파일을 드래그 앤 드롭하거나 <span class='filepond--label-action'> 찾아보기 </span>",
+    "status": {
+      "noFile": "선택된 파일이 없습니다.",
+      "uploading": "인코딩 및 업로드 중...",
+      "success": "업로드 성공.",
+      "failure": "업로드 실패."
+    }
+  },
+  "resultsPage": {
+    "title": "분석 결과",
+    "modelVersion": "모델 버전",
+    "galleryVersion": "갤러리 버전",
+    "tabs": {
+      "genes": "유전자",
+      "syndromes": "증후군",
+      "patients": "환자"
+    },
+    "search": {
+      "genes": "유전자 검색",
+      "syndromes": "증후군 검색",
+      "patients": "환자 검색"
+    }
+  },
+  "settingsDialog": {
+    "title": "설정",
+    "subtitle": "API 서버 연결 정보 설정",
+    "apiServer": "API 서버",
+    "host": "호스트 URI",
+    "port": "포트",
+    "auth": "인증",
+    "user": "사용자 이름",
+    "password": "비밀번호"
+  },
+  "exportDialog": {
+    "title": "결과 내보내기",
+    "subtitle": "선호하는 내보내기 형식을 선택하세요.",
+    "excel": {
+      "title": "Excel 형식",
+      "description": "모든 결과 테이블(유전자, 증후군, 환자)을 여러 시트가 있는 단일 .xlsx 파일로 내보냅니다.",
+      "button": "모두 Excel로 내보내기"
+    },
+    "tsv": {
+      "title": "탭으로 구분된 값(TSV) 형식",
+      "description": "단일 결과 테이블을 .tsv 파일로 내보냅니다.",
+      "label": "내보낼 데이터 세트 선택",
+      "button": "선택 항목을 TSV로 내보내기"
+    }
+  },
+  "footer": {
+    "caution": "GestaltMatcher 및 GestaltMatcher GUI는 연구 및 교육 목적으로만 사용됩니다."
+  },
+  "common": {
+    "cancel": "취소",
+    "submit": "제출",
+    "save": "변경 사항 저장",
+    "clear": "결과 지우기"
+  }
+}

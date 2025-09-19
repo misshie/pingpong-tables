@@ -1,0 +1,73 @@
+{
+  "appTitle": "GestaltMatcher GUI",
+  "nav": {
+    "analysis": "Análise",
+    "export": "Exportar Resultados",
+    "settings": "Configurações",
+    "about": "Sobre"
+  },
+  "startPage": {
+    "welcome": "Bem-vindo ao",
+    "getStarted": "Começar",
+    "pressAnalysis": "Pressione o botão <strong>Análise</strong> na barra de navegação à esquerda para começar."
+  },
+  "analysisDialog": {
+    "title": "Carregar Arquivo de Análise",
+    "labelIdle": "Arraste e solte seu arquivo aqui ou <span class='filepond--label-action'> procure </span>",
+    "status": {
+      "noFile": "Nenhum arquivo selecionado.",
+      "uploading": "Codificando e carregando...",
+      "success": "Carregamento bem-sucedido.",
+      "failure": "Falha no carregamento."
+    }
+  },
+  "resultsPage": {
+    "title": "Resultado da Análise",
+    "modelVersion": "Versão do Modelo",
+    "galleryVersion": "Versão da Galeria",
+    "tabs": {
+      "genes": "Genes",
+      "syndromes": "Síndromes",
+      "patients": "Pacientes"
+    },
+    "search": {
+      "genes": "Pesquisar Genes",
+      "syndromes": "Pesquisar Síndromes",
+      "patients": "Pesquisar Pacientes"
+    }
+  },
+  "settingsDialog": {
+    "title": "Configurações",
+    "subtitle": "Configure os detalhes de conexão do servidor da API.",
+    "apiServer": "Servidor da API",
+    "host": "URI do Host",
+    "port": "Porta",
+    "auth": "Autenticação",
+    "user": "Nome de usuário",
+    "password": "Senha"
+  },
+  "exportDialog": {
+    "title": "Exportar Resultados",
+    "subtitle": "Escolha o seu formato de exportação preferido.",
+    "excel": {
+      "title": "Formato Excel",
+      "description": "Exporte todas as tabelas de resultados (Genes, Síndromes, Pacientes) para um único arquivo .xlsx com várias planilhas.",
+      "button": "Exportar Tudo para Excel"
+    },
+    "tsv": {
+      "title": "Formato de Valores Separados por Tabulação (TSV)",
+      "description": "Exporte uma única tabela de resultados como um arquivo .tsv.",
+      "label": "Selecione o conjunto de dados para exportar",
+      "button": "Exportar Selecionado como TSV"
+    }
+  },
+  "footer": {
+    "caution": "O GestaltMatcher e o GestaltMatcher GUI destinam-se apenas a fins de pesquisa e educacionais."
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "submit": "Enviar",
+    "save": "Salvar Alterações",
+    "clear": "Limpar Resultado"
+  }
+}
