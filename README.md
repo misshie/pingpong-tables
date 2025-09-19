@@ -2,6 +2,8 @@
 
 *Next-Generation Phenotyping powered by GestaltMatcher and PubCaseFinder*
 
+![piNGPong table](./assets/piNGPongTables.png)
+
 ### **Table of Contents**
 
 1. [Introduction](https://www.google.com/search?q=%23introduction)  
