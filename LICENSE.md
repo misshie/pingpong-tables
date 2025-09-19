@@ -1,3 +1,7 @@
+Copyright (c) 2025 Hiroyuki Mishima
+Copyright (c) 2022-2025 Tzung-Chien Hsieh, Peter M. Kwawitz
+---
+
 Creative Commons Attribution-NonCommercial 4.0 International
 
 Creative Commons Corporation ("Creative Commons") is not a law firm and

@@ -1,0 +1,135 @@
+# **piNGPong tables**
+
+*Next-Generation Phenotyping powered by GestaltMatcher and PubCaseFinder*
+
+### **Table of Contents**
+
+1. [Introduction](https://www.google.com/search?q=%23introduction)  
+2. [For End-Users (Installation & Usage)](https://www.google.com/search?q=%23for-end-users)  
+3. [For Developers](https://www.google.com/search?q=%23for-developers)  
+4. [Technology Stack](https://www.google.com/search?q=%23technology-stack)  
+5. [License](https://www.google.com/search?q=%23license)  
+6. [Acknowledgements](https://www.google.com/search?q=%23acknowledgements)  
+7. [Author](https://www.google.com/search?q=%23author)
+
+### **Introduction**
+
+**piNGPong tables** is a web-based application designed to support the diagnosis of rare diseases.
+It integrates facial phenotype analysis from images with clinical information (HPO IDs) to provide
+a comprehensive view for clinical geneticists and medical researchers.
+
+The application leverages the analytical power of GestaltMatcher for image-based predictions
+and complements it with data from PubCaseFinder for HPO-based queries, offering a multi-faceted
+approach to next-generation phenotyping.
+
+piNGPong tables, GestaltMatcher, and external information sources including PubCaseFiner are
+***intended for research and educational purposes only***.
+
+### **For End-Users (Installation & Usage)**
+
+This section provides instructions for users who want to run the application.
+No front-end development environment is required.
+
+#### **Prerequisites**
+
+* Docker and Docker Compose must be installed on your system.
+
+#### **1\. Get the Application**
+
+Clone this repository or download the source code from the .....
+
+#### **2\. Place Clinical Data**
+
+You need to place the separately distributed clinical data files into the backend/ directory.
+ Copy your data and saved\_models directories to the specified location.
+
+The final structure should look like this:
+
+pingpong-tables/  
+└── backend/  
+    ├── data/          \<-- Place your data directory here  
+    ├── saved\_models/  \<-- Place your models directory here  
+    └── ... (other backend files)
+
+#### **3\. Build and Run the Application**
+
+Navigate to the backend directory and use Docker Compose to build and start the services.
+
+cd backend  
+docker compose build  
+docker compose up \-d
+
+The initial startup may take several minutes as the API service loads the models.
+
+#### **4\. Access the Application**
+
+Once the startup process is complete, open your web browser and navigate to:  
+https://localhost
+
+### **For Developers**
+
+This section is for developers who wish to contribute to the project.
+
+#### **Initial Setup**
+
+1. **Frontend Dependencies:**  
+   cd frontend  
+   npm install
+
+2. Backend Data:  
+   Follow step 2 in the "For End-Users" section to place the required clinical data in the backend/ directory.
+
+#### **Running in Development Mode**
+
+1. **Start Frontend Dev Server:**  
+   cd frontend  
+   npm run dev
+
+2. Start Backend API Server:  
+   In a separate terminal:  
+   cd backend  
+   docker compose up \--build
+
+   The frontend will now be available at http://localhost:3000 with hot-reloading enabled,
+   and it will communicate with the API server running inside Docker.
+
+#### **Building the Frontend**
+
+To build the production-ready frontend and copy it to the backend's static directory,
+run the provided script from the project root:
+
+./build-frontend.sh
+
+### **Technology Stack**
+
+* **Frontend:** Vue.js 3, TypeScript, Vuetify  
+* **Backend:** Python 3, FastAPI  
+* **Infrastructure:** Docker, Docker Compose, Nginx
+
+### **License**
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**.
+See the [LICENSE.md](https://www.google.com/search?q=./LICENSE.md) file for full details.
+
+### **Acknowledgements**
+
+The backend service of this project is based on the work of
+[GestaltMatcher](https://www.gestaltmatcher.org/) with their [repository](https://github.com/igsb/GestaltMatcher-Arc/).
+The authoe is grateful for their foundational contributions to the field.
+
+### **Author**
+
+* **Hiroyuki Mishima** (三嶋 博之)*
+*Department of Human Genetics, Atomic Bomb Disease Institute, Nagasaki University*  
+* [GitHub Profile](https://github.com/misshie)
+
+## References (GestaltMatcher)
+1. **GestaltMatcher**: Hsieh, T.-C. et al. (2022). GestaltMatcher facilitates rare disease matching using facial phenotype descriptors. Nature Genetics, 54(3), 349-357. [https://www.nature.com/articles/s41588-021-01010-x](https://www.nature.com/articles/s41588-021-01010-x)
+2. **GestaltMatcher-Arc**: Hustinx, A. et al. (2023). Improving deep facial phenotyping for ultra-rare disorder verification using model ensembles. 2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV). doi:[10.1109/wacv56688.2023.00499](https://openaccess.thecvf.com/content/WACV2023/papers/Hustinx_Improving_Deep_Facial_Phenotyping_for_Ultra-Rare_Disorder_Verification_Using_Model_WACV_2023_paper.pdf)
+3. **GestaltMatcher Database**: Lesmann, H. et al. (2024). GestaltMatcher Database - A global reference for facial phenotypic variability in rare human diseases. medRxiv. doi:[10.1101/2023.06.06.23290887](https://www.medrxiv.org/content/10.1101/2023.06.06.23290887v3)
+
+## References (PubCaseFinder)
+1. Shin, J., Fujiwara, T., Saitsu, H., & Yamaguchi, A. (2025).Ontology-based expansion of virtual gene panels to improve diagnostic efficiency for rare genetic diseases. BMC medical informatics and decision making, 25(Suppl 1), 59.
+2. Fujiwara, T., Shin, J. M., & Yamaguchi, A. (2022). Advances in the development of PubCaseFinder, including the new application programming interface and matching algorithm. Human mutation, 10.1002/humu.24341. Advance online publication.
+3. Yamaguchi, A., Shin, J. M., & Fujiwara, T. (2021, December). Gene Ranking based on Paths from Phenotypes to Genes on Knowledge Graph. In The 10th International Joint Conference on Knowledge Graphs (pp. 131-134).
+4. Fujiwara, T., Yamamoto, Y., Kim, J. D., Buske, O., & Takagi, T. (2018). PubCaseFinder: A case-report-based, phenotype-driven differential-diagnosis system for rare diseases. The American Journal of Human Genetics, 103(3), 389-399.
