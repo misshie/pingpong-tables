@@ -65,6 +65,8 @@
     if (newResult === null) {
       uploadStatusKey.value = 'analysisDialog.status.noFile'
       pond.value?.removeFiles()
+      useHpo.value = false
+      hpoIds.value = ''
     }
   })
 

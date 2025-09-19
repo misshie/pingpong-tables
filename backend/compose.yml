@@ -8,10 +8,10 @@ services:
       - "5000"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/api/status"]
-      interval: 5m
+      interval: 3m
       timeout: 10s
       retries: 3
-      start_period: 30s
+      start_period: 90s
 
   # 2. Nginx reverse proxy service
   nginx:

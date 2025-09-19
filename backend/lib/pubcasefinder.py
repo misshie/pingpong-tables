@@ -40,7 +40,7 @@ def query_pubcasefinder(hpo_ids: List[str]) -> Dict[str, Any]:
         print("--- PubCaseFinder API Response ---")
         # Pretty-print the JSON response to the console for debugging.
     
-        print(json.dumps(response.json() , indent=2)) 
+        print(json.dumps(response.json() , indent=2)[:500] + "\n...")
 
         print("---------------------------------")
         # --- Debugging Output End ---

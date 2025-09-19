@@ -34,14 +34,9 @@
   // Related Resources
   const resources = [
     {
-      href: 'https://github.com/misshie/GestaltMatcherGUI',
+      href: 'https://github.com/misshie/pingpong-tables',
       icon: 'mdi-github',
-      title: 'GestaltMatcher GUI Repository',
-    },
-    {
-      href: 'https://github.com/misshie/GestaltMatcherGUI',
-      icon: 'mdi-docker',
-      title: 'GestaltMatcher + GUI Docker Container',
+      title: 'piNGPong tables Repository',
     },
   ]
 
@@ -93,10 +88,10 @@
       <v-img
         class="mb-4 mx-auto"
         height="150"
-        src="@/assets/GestaltMatcher.png"
-        style="max-width: 150px;"
+        src="@/assets/piNGPongTables.png"
+        style="max-width: 600px;"
       />
-      <h1 class="text-h3 font-weight-bold">GestaltMatcher GUI</h1>
+      <!---- <h1 class="text-h4 font-weight-bold">piNGPong tables</h1> -->
       <div class="text-body-1 font-weight-light mt-2 mb-6">
         Next-Generation Phenotyping with AI and FAIR data
       </div>

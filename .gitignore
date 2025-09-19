@@ -18,6 +18,9 @@
 *.sln
 *.sw?
 
+# release/build artifacts
+*.tar.gz
+*.zip
 
 # ===================================================================
 # Frontend (Vue 3 / TypeScript / Node.js)
