@@ -24,6 +24,7 @@
     { title: 'Score', key: 'score', sortable: true, width: '150px' },
     { title: 'PCF Rank', key: 'pubcasefinder_rank', align: 'end' },
     { title: 'PCF Score', key: 'pubcasefinder_score', align: 'end' },
+    { title: 'Mean Rank', key: 'mean_rank', align: 'end', sortable: false },
   ]
 
   const syndromeHeaders: ReadonlyHeaders = [
@@ -36,6 +37,7 @@
     { title: 'Subject ID', key: 'subject_id', sortable: false },
     { title: 'PCF Rank', key: 'pubcasefinder_rank', align: 'end' },
     { title: 'PCF Score', key: 'pubcasefinder_score', align: 'end' },
+    { title: 'Mean Rank', key: 'mean_rank', align: 'end', sortable: false },
   ]
 
   const patientHeaders: ReadonlyHeaders = [
@@ -49,6 +51,7 @@
     { title: 'Phenotypic Series', key: 'phenotypic_series', sortable: false },
     { title: 'PCF Rank', key: 'pubcasefinder_rank', align: 'end' },
     { title: 'PCF Score', key: 'pubcasefinder_score', align: 'end' },
+    { title: 'Mean Rank', key: 'mean_rank', align: 'end', sortable: false },
   ]
 
   /**
@@ -75,6 +78,15 @@
   // Helper function to format scores consistently.
   function formatScore (score: number | undefined | null) {
     return typeof score === 'number' ? score.toFixed(4) : '-'
+  }
+
+  // Helper function to calculate and format mean rank.
+  function calculateMeanRank (item: { rank?: number, pubcasefinder_rank?: number }) {
+    if (typeof item.rank === 'number' && typeof item.pubcasefinder_rank === 'number') {
+      const mean = (item.rank + item.pubcasefinder_rank) / 2
+      return mean.toFixed(1)
+    }
+    return '-'
   }
 </script>
 
@@ -172,6 +184,10 @@
               <template #item.pubcasefinder_score="{ item }">
                 {{ formatScore(item.pubcasefinder_score) }}
               </template>
+
+              <template #item.mean_rank="{ item }">
+                {{ calculateMeanRank(item) }}
+              </template>
             </v-data-table>
           </v-window-item>
 
@@ -225,6 +241,9 @@
                 {{ formatScore(item.pubcasefinder_score) }}
               </template>
 
+              <template #item.mean_rank="{ item }">
+                {{ calculateMeanRank(item) }}
+              </template>
             </v-data-table>
           </v-window-item>
 
@@ -297,6 +316,9 @@
                 {{ formatScore(item.pubcasefinder_score) }}
               </template>
 
+              <template #item.mean_rank="{ item }">
+                {{ calculateMeanRank(item) }}
+              </template>
             </v-data-table>
           </v-window-item>
         </v-window>
