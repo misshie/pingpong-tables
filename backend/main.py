@@ -10,6 +10,7 @@ from contextlib import asynccontextmanager
 from lib.utils_functions import readb64, encodeb64
 from datetime import datetime
 from lib.pubcasefinder import query_pubcasefinder
+from lib.integrator import integrate_json
 
 from fastapi import Depends, FastAPI, HTTPException, status, APIRouter
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
@@ -164,7 +165,8 @@ async def predict_endpoint(username: Annotated[str, Depends(get_current_username
     print('Encode: {:.2f}s'.format(encode_time-align_time))
     print('Predict: {:.2f}s'.format(finished_time-encode_time))
     print('Total: {:.2f}s'.format(finished_time-start_time))
-    return final_result
+
+    return integrate_json(final_result)
 
 
 @api_router.post("/encode")
