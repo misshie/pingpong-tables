@@ -22,6 +22,8 @@
     { title: 'Entrez ID', key: 'gene_entrez_id', sortable: false },
     { title: 'Distance', key: 'distance', sortable: true },
     { title: 'Score', key: 'score', sortable: true, width: '150px' },
+    { title: 'PCF Rank', key: 'pubcasefinder_rank', align: 'end' },
+    { title: 'PCF Score', key: 'pubcasefinder_score', align: 'end' },
   ]
 
   const syndromeHeaders: ReadonlyHeaders = [
@@ -32,6 +34,8 @@
     { title: 'Score', key: 'score', sortable: true, width: '150px' },
     { title: 'Image ID', key: 'image_id', sortable: false },
     { title: 'Subject ID', key: 'subject_id', sortable: false },
+    { title: 'PCF Rank', key: 'pubcasefinder_rank', align: 'end' },
+    { title: 'PCF Score', key: 'pubcasefinder_score', align: 'end' },
   ]
 
   const patientHeaders: ReadonlyHeaders = [
@@ -43,7 +47,10 @@
     { title: 'Score', key: 'score', sortable: true, width: '150px' },
     { title: 'OMIM iD', key: 'omim_id' },
     { title: 'Phenotypic Series', key: 'phenotypic_series', sortable: false },
+    { title: 'PCF Rank', key: 'pubcasefinder_rank', align: 'end' },
+    { title: 'PCF Score', key: 'pubcasefinder_score', align: 'end' },
   ]
+
   /**
    * Extracts the numeric OMIM ID from a composite string.
    * @param omimValue - The string from the data, e.g., "600123, PS123456"
@@ -63,6 +70,11 @@
     if (!omimValue) return null
     const parts = String(omimValue).split(',').map(p => p.trim())
     return parts.find(p => p.startsWith('PS')) || null
+  }
+
+  // Helper function to format scores consistently.
+  function formatScore (score: number | undefined | null) {
+    return typeof score === 'number' ? score.toFixed(4) : '-'
   }
 </script>
 
@@ -152,6 +164,14 @@
                   <v-icon class="ml-1" icon="mdi-open-in-new" size="x-small" />
                 </a>
               </template>
+
+              <template #item.pubcasefinder_rank="{ item }">
+                {{ item.pubcasefinder_rank ?? '-' }}
+              </template>
+
+              <template #item.pubcasefinder_score="{ item }">
+                {{ formatScore(item.pubcasefinder_score) }}
+              </template>
             </v-data-table>
           </v-window-item>
 
@@ -196,6 +216,15 @@
                   rounded
                 />
               </template>
+
+              <template #item.pubcasefinder_rank="{ item }">
+                {{ item.pubcasefinder_rank ?? '-' }}
+              </template>
+
+              <template #item.pubcasefinder_score="{ item }">
+                {{ formatScore(item.pubcasefinder_score) }}
+              </template>
+
             </v-data-table>
           </v-window-item>
 
@@ -259,6 +288,15 @@
                   rounded
                 />
               </template>
+
+              <template #item.pubcasefinder_rank="{ item }">
+                {{ item.pubcasefinder_rank ?? '-' }}
+              </template>
+
+              <template #item.pubcasefinder_score="{ item }">
+                {{ formatScore(item.pubcasefinder_score) }}
+              </template>
+
             </v-data-table>
           </v-window-item>
         </v-window>

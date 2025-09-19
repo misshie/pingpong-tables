@@ -5,6 +5,8 @@ interface GeneEntry {
   distance: number
   rank?: number
   score: number
+  pubcasefinder_rank?: number
+  pubcasefinder_score?: number
 }
 
 interface SyndromeEntry {
@@ -15,6 +17,8 @@ interface SyndromeEntry {
   subject_id: string
   rank?: number
   score: number
+  pubcasefinder_rank?: number
+  pubcasefinder_score?: number
 }
 
 interface PatientEntry {
@@ -27,6 +31,8 @@ interface PatientEntry {
   omim_id: number | string
   rank?: number
   score: number
+  pubcasefinder_rank?: number
+  pubcasefinder_score?: number
 }
 
 export interface AnalysisResult {
@@ -35,6 +41,7 @@ export interface AnalysisResult {
   suggested_genes_list: GeneEntry[]
   suggested_syndromes_list: SyndromeEntry[]
   suggested_patients_list: PatientEntry[]
+  pubcasefinder?: any
 }
 
 export interface AppSettings {
