@@ -74,7 +74,11 @@ Navigate to the backend directory and use Docker Compose to build and start the 
 ```
 cd backend  
 docker compose build  
+<<<<<<< HEAD
 docker compose up -d
+=======
+docker compose up \-d
+>>>>>>> 915fbb1727d72b82a5b58807944f3445a13f7908
 ```
 (without `-d`, you can watch console logs)
 
@@ -85,9 +89,16 @@ The initial startup may take about 90 seconds as the API service loads the model
 Once the startup process is complete, open your web browser and navigate to:  
 `https://localhost`
 
+<<<<<<< HEAD
 **Security Warning on First Access**
 
 When you first access *piNGPong tables*, your browser may show a potential security warning due to our use of a self-signed certificate.
+=======
+Security Warning on First Access
+
+When you first access *piNGPong tables*, your browser may show a potential security warning due to our use of a self-signed certificate.
+
+>>>>>>> 915fbb1727d72b82a5b58807944f3445a13f7908
 This is a normal and expected behavior. To proceed, please click on the button labeled "Advanced" or "Proceed to..." and accept the certificate.
 
 ### **For Developers**
