@@ -85,10 +85,9 @@ The initial startup may take about 90 seconds as the API service loads the model
 Once the startup process is complete, open your web browser and navigate to:  
 `https://localhost`
 
-Security Warning on First Access
+**Security Warning on First Access**
 
 When you first access *piNGPong tables*, your browser may show a potential security warning due to our use of a self-signed certificate.
-
 This is a normal and expected behavior. To proceed, please click on the button labeled "Advanced" or "Proceed to..." and accept the certificate.
 
 ### **For Developers**
