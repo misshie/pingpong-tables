@@ -38,35 +38,58 @@ No front-end development environment is required.
 
 #### **1\. Get the Application**
 
-Clone this repository or download the source code from the .....
+Download latest release zip file and unzip.
 
-#### **2\. Place Clinical Data**
+#### **2\. Place Trained Models**
+
+Due to ethical reasons the pretrained models are not made available publicly. \
+Once access has been granted to GMDB, the pretrained model weights can be requested as well.
+
+Save the following files in `backend/saved_models/`
+1. `Resnet50_Final.pth` (for the face alignment)
+2. `glint360k_r50.onnx` (base pre-trained model for model a)
+3. `glint360k_r100.onnx` (base pre-trained model for model b)
+
+Trained models by our group in `backend/data`
+1. `s1_glint360k_r50_512d_gmdb__v1.1.0_bs64_size112_channels3_last_model.pth` (model 1 for the encoding)
+2. `s2_glint360k_r100_512d_gmdb__v1.1.0_bs128_size112_channels3_last_model.pth` (model 2 for the encoding)
 
 You need to place the separately distributed clinical data files into the backend/ directory.
  Copy your data and saved\_models directories to the specified location.
 
 The final structure should look like this:
 
+```
 pingpong-tables/  
 └── backend/  
     ├── data/          \<-- Place your data directory here  
     ├── saved\_models/  \<-- Place your models directory here  
     └── ... (other backend files)
+```
 
 #### **3\. Build and Run the Application**
 
 Navigate to the backend directory and use Docker Compose to build and start the services.
 
+```
 cd backend  
 docker compose build  
 docker compose up \-d
+```
+(without `-d`, you can watch console logs)
 
-The initial startup may take several minutes as the API service loads the models.
+The initial startup may take about 90 seconds as the API service loads the models.
 
 #### **4\. Access the Application**
 
 Once the startup process is complete, open your web browser and navigate to:  
-https://localhost
+`https://localhost`
+
+Security Warning on First Access
+
+When you first access *piNGPong tables*, your browser may show a potential security warning due to our use of a self-signed certificate.
+
+This is a normal and expected behavior. To proceed, please click on the button labeled "Advanced" or "Proceed to..." and accept the certificate.
 
 ### **For Developers**
 
