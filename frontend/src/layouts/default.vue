@@ -47,7 +47,7 @@
       <div class="d-flex justify-center pa-4">
         <router-link to="/">
           <v-avatar
-            image="@/assets/piNGPongTables.png"
+            image="@/assets/piNGPongTables-Avatar.png"
             style="cursor: pointer;"
             @click="handleLogoClick"
           />

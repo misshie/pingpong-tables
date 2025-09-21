@@ -1,12 +1,15 @@
 import { defineStore } from 'pinia'
+
 interface GeneEntry {
   gene_name: string
   gene_entrez_id: string
   distance: number
-  rank?: number
-  score: number
+  score: number | null
+  gm_rank?: number
   pubcasefinder_rank?: number
   pubcasefinder_score?: number
+  mean_rank?: number | null
+  meta_rank?: number
 }
 
 interface SyndromeEntry {
@@ -15,10 +18,12 @@ interface SyndromeEntry {
   distance: number
   image_id: string
   subject_id: string
-  rank?: number
-  score: number
+  score: number | null
+  gm_rank?: number
   pubcasefinder_rank?: number
   pubcasefinder_score?: number
+  mean_rank?: number | null
+  meta_rank?: number
 }
 
 interface PatientEntry {
@@ -28,11 +33,17 @@ interface PatientEntry {
   distance: number
   image_id: string
   syndrome_name: string
-  omim_id: number | string
-  rank?: number
-  score: number
+  omim_id: number | string // Original composite value from GestaltMatcher
+  score: number | null
+  gm_rank?: number
   pubcasefinder_rank?: number
   pubcasefinder_score?: number
+  mean_rank?: number | null
+  meta_rank?: number
+  // --- ADDED ---
+  // Parsed IDs from the backend integrator
+  numeric_omim_id?: number | null
+  phenotypic_series_id?: string | null
 }
 
 export interface AnalysisResult {
@@ -79,40 +90,6 @@ export const useStore = defineStore('app', {
     },
 
     setAnalysisResult (result: AnalysisResult) {
-      // Helper function to process each list
-      const processList = (list: any[]): any[] => {
-        if (!list || list.length === 0) {
-          return [];
-        }
-
-        // 1. Add rank
-        const rankedList = list.map((item, index) => ({
-          ...item,
-          rank: index + 1,
-        }))
-
-        // 2. Calculate score
-        const distances = rankedList.map(item => item.distance)
-        const min_dist = Math.min(...distances)
-        const max_dist = Math.max(...distances)
-        const range = max_dist - min_dist
-
-        // Handle edge case where all distances are the same
-        if (range === 0) {
-          return rankedList.map(item => ({ ...item, score: 1 }))
-        }
-
-        return rankedList.map(item => ({
-          ...item,
-          score: 1 - (item.distance - min_dist) / range,
-        }))
-      }
-
-      // Process each list in the result to add rank and score
-      result.suggested_genes_list = processList(result.suggested_genes_list)
-      result.suggested_syndromes_list = processList(result.suggested_syndromes_list)
-      result.suggested_patients_list = processList(result.suggested_patients_list)
-
       this.analysisResult = result
     },
 
@@ -129,3 +106,4 @@ export const useStore = defineStore('app', {
     },
   },
 })
+
