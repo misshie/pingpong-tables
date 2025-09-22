@@ -50,9 +50,12 @@ Save the following files in `backend/saved_models/`
 2. `glint360k_r50.onnx` (base pre-trained model for model a)
 3. `glint360k_r100.onnx` (base pre-trained model for model b)
 
-Trained models by our group in `backend/data`
+Trained models by GestaltMatcher Database in `backend/data`
 1. `s1_glint360k_r50_512d_gmdb__v1.1.0_bs64_size112_channels3_last_model.pth` (model 1 for the encoding)
 2. `s2_glint360k_r100_512d_gmdb__v1.1.0_bs128_size112_channels3_last_model.pth` (model 2 for the encoding)
+
+Gellery Encodings by GestaltMatcher Database in `backend/data/gellery_encodings`
+1. `GMDB_gallery_encodings_20082024_v1.1.0_service.pkl`
 
 You need to place the separately distributed clinical data files into the backend/ directory.
  Copy your data and saved\_models directories to the specified location.
