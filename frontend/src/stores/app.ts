@@ -33,17 +33,30 @@ interface PatientEntry {
   distance: number
   image_id: string
   syndrome_name: string
-  omim_id: number | string // Original composite value from GestaltMatcher
+  omim_id: number | string
   score: number | null
   gm_rank?: number
   pubcasefinder_rank?: number
   pubcasefinder_score?: number
   mean_rank?: number | null
   meta_rank?: number
-  // --- ADDED ---
-  // Parsed IDs from the backend integrator
   numeric_omim_id?: number | null
   phenotypic_series_id?: string | null
+}
+
+interface HpoNameEntry {
+  name_en: string
+  name_ja: string
+}
+
+interface HpoNames {
+  // Allows indexing by HPO ID string, e.g., "HP:0000347"
+  [key: string]: HpoNameEntry
+}
+
+interface PubCaseFinderResult {
+  ranked_list: any[] // This contains the raw ranked list for matching
+  hpo_names: HpoNames
 }
 
 export interface AnalysisResult {
@@ -52,7 +65,10 @@ export interface AnalysisResult {
   suggested_genes_list: GeneEntry[]
   suggested_syndromes_list: SyndromeEntry[]
   suggested_patients_list: PatientEntry[]
-  pubcasefinder?: any
+  // The original HPO IDs sent in the request
+  queried_hpo_ids?: string[]
+  // The structured result from pubcasefinder.py
+  pubcasefinder?: PubCaseFinderResult
 }
 
 export interface AppSettings {
@@ -106,4 +122,3 @@ export const useStore = defineStore('app', {
     },
   },
 })
-

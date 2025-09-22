@@ -2,56 +2,60 @@ import requests
 import json
 from typing import List, Dict, Any
 
-# The actual PubCaseFinder API endpoint URL
-PUBCASEFINDER_API_URL = "https://pubcasefinder.dbcls.jp/api/pcf_get_ranked_list"
+# Define API endpoints
+PCF_RANKED_LIST_API_URL = "https://pubcasefinder.dbcls.jp/api/pcf_get_ranked_list"
+PCF_HPO_DATA_API_URL = "https://pubcasefinder.dbcls.jp/api/pcf_get_hpo_data_by_hpo_id"
+
+def _fetch_ranked_list(hpo_ids: List[str]) -> List[Dict[str, Any]]:
+    """Fetches the ranked list of diseases from PubCaseFinder."""
+    params = {
+        'target': 'omim',
+        'format': 'json',
+        'hpo_id': ','.join(hpo_ids)
+    }
+    response = requests.get(PCF_RANKED_LIST_API_URL, params=params, timeout=30)
+    response.raise_for_status()
+    return response.json()
+
+def _fetch_hpo_names(hpo_ids: List[str]) -> Dict[str, Any]:
+    """Fetches HPO term names from PubCaseFinder."""
+    params = {'hpo_id': ','.join(hpo_ids)}
+    response = requests.get(PCF_HPO_DATA_API_URL, params=params, timeout=30)
+    response.raise_for_status()
+    return response.json()
 
 def query_pubcasefinder(hpo_ids: List[str]) -> Dict[str, Any]:
     """
-    Queries the PubCaseFinder API with a list of HPO IDs.
+    Queries PubCaseFinder for both ranked disease list and HPO term names.
 
     Args:
-        hpo_ids: A list of HPO term IDs (e.g., ["HP:0000175", "HP:0000750"]).
+        hpo_ids: A list of HPO term IDs.
 
     Returns:
-        A dictionary containing the API response, or an error message if the query fails.
+        A dictionary containing both the ranked list and HPO name data,
+        or an error message if any query fails.
     """
     if not hpo_ids:
-        # Return an empty dictionary if no HPO IDs are provided.
         return {}
 
     print(f"Querying PubCaseFinder with HPO IDs: {hpo_ids}")
 
-    # Construct the parameters for the GET request.
-    params = {
-        'target': 'omim',
-        'format': 'json',
-        'hpo_id': ','.join(hpo_ids)  # Join the list into a comma-separated string.
-    }
-
     try:
-        # Make the GET request to the PubCaseFinder API with a 30-second timeout.
-        response = requests.get(PUBCASEFINDER_API_URL, params=params, timeout=30)
+        # Fetch both sets of data from the API
+        ranked_list = _fetch_ranked_list(hpo_ids)
+        hpo_names = _fetch_hpo_names(hpo_ids)
+
+        # --- Debugging Output ---
+        print("--- PubCaseFinder Ranked List Response (Truncated) ---")
+        print(json.dumps(ranked_list, indent=2)[:500] + "\n...")
+        print("----------------------------------------------------")
         
-        # Raise an HTTPError if the HTTP request returned an unsuccessful status code.
-        response.raise_for_status()
-        
-
-       # --- Debugging Output Start ---
-        print("--- PubCaseFinder API Response ---")
-        # Pretty-print the JSON response to the console for debugging.
-    
-        print(json.dumps(response.json() , indent=2)[:500] + "\n...")
-
-        print("---------------------------------")
-        # --- Debugging Output End ---
-
-
-
-        # Parse the JSON response and return it.
-        return response.json()
+        # Combine both results into a single object
+        return {
+            "ranked_list": ranked_list,
+            "hpo_names": hpo_names
+        }
 
     except requests.exceptions.RequestException as e:
-        # Handle connection errors, timeouts, etc.
         print(f"Error querying PubCaseFinder: {e}")
         return {"error": "Failed to connect to the PubCaseFinder API."}
-

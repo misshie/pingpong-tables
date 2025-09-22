@@ -7,18 +7,16 @@
   const { t } = useI18n()
   const store = useStore()
 
-  const tab = ref('Syndromes') // Default tab is now Syndromes
+  const tab = ref('Syndromes')
   const geneSearch = ref('')
   const syndromeSearch = ref('')
   const patientSearch = ref('')
 
   type ReadonlyHeaders = VDataTable['$props']['headers']
 
-  // Dynamically create tabs in the correct order.
   const tabs = computed(() => {
     if (!store.analysisResult) return []
     const availableTabs: { key: string, labelKey: string, count: number }[] = []
-
     if (store.analysisResult.suggested_syndromes_list?.length) {
       availableTabs.push({ key: 'Syndromes', labelKey: 'resultsPage.tabs.syndromes', count: store.analysisResult.suggested_syndromes_list.length })
     }
@@ -31,7 +29,6 @@
     return availableTabs
   })
 
-  // Define headers for each data table with the new column order and names.
   const geneHeaders = computed((): ReadonlyHeaders => [
     { title: 'Meta Rank', key: 'meta_rank', align: 'end' },
     { title: 'GM Rank', key: 'gm_rank', align: 'end' },
@@ -70,6 +67,24 @@
     { title: 'PCF Match', key: 'pcf_match_visual', align: 'center', sortable: false },
   ])
 
+  const hpoQueryList = computed(() => {
+    const result = store.analysisResult
+    if (!result?.queried_hpo_ids?.length || !result.pubcasefinder?.hpo_names) {
+      return []
+    }
+
+    // Determine which language name to use based on the current locale
+    const nameKey = store.locale === 'ja' ? 'name_ja' : 'name_en'
+
+    return result.queried_hpo_ids.map(hpoId => {
+      const hpoData = result.pubcasefinder?.hpo_names[hpoId]
+      return {
+        id: hpoId,
+        name: hpoData ? hpoData[nameKey] ?? hpoData.name_en : 'Name not found',
+      }
+    })
+  })
+
   const geneItems = computed(() => store.analysisResult?.suggested_genes_list || [])
   const syndromeItems = computed(() => store.analysisResult?.suggested_syndromes_list || [])
   const patientItems = computed(() => store.analysisResult?.suggested_patients_list || [])
@@ -91,16 +106,13 @@
     return typeof score === 'number' ? score.toFixed(4) : '-'
   }
 
-  // --- ADDED: Custom sort function for ranks ---
   function rankSort (a: number | null | undefined, b: number | null | undefined) {
     const aIsNull = a === null || a === undefined
     const bIsNull = b === null || b === undefined
-
-    if (aIsNull && bIsNull) return 0 // both are null, treat as equal
-    if (aIsNull) return 1 // only a is null, so b comes first (push a to the end)
-    if (bIsNull) return -1 // only b is null, so a comes first (push b to the end)
-
-    return a - b // both are numbers, standard numeric sort
+    if (aIsNull && bIsNull) return 0
+    if (aIsNull) return 1
+    if (bIsNull) return -1
+    return a - b
   }
 
   const customRankSorters = {
@@ -112,13 +124,41 @@
 
 <template>
   <v-container v-if="store.analysisResult" fluid>
-    <v-row v-if="store.uploadedImage" class="mb-4" justify="center">
-      <v-col cols="auto">
-        <v-card elevation="2" width="150">
+    <!-- ROW: Displays image and HPO list side-by-side -->
+    <v-row class="mb-4" :justify="hpoQueryList.length > 0 ? 'start' : 'center'">
+      <!-- Image Column -->
+      <v-col v-if="store.uploadedImage" cols="auto">
+        <v-card elevation="2" width="180">
           <v-img alt="Uploaded analysis image" aspect-ratio="1" cover :src="store.uploadedImage" />
         </v-card>
       </v-col>
+
+      <!-- HPO List Column (only if HPO data exists) -->
+      <v-col v-if="hpoQueryList.length > 0">
+        <v-card elevation="2">
+          <v-card-title class="text-subtitle-2 py-2">
+            {{ t('resultsPage.queriedHpo') }}
+          </v-card-title>
+          <v-divider />
+          <v-table density="compact" fixed-header height="150px">
+            <thead>
+              <tr>
+                <th class="text-left">HPO ID</th>
+                <th class="text-left">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="hpo in hpoQueryList" :key="hpo.id">
+                <td>{{ hpo.id }}</td>
+                <td>{{ hpo.name }}</td>
+              </tr>
+            </tbody>
+          </v-table>
+        </v-card>
+      </v-col>
     </v-row>
+
+    <!-- Main Results Card -->
     <v-card>
       <v-card-text class="d-flex justify-space-between text-caption py-2">
         <span>Model Version: {{ store.analysisResult?.model_version }}</span>
@@ -269,7 +309,6 @@
               /><span v-else>-</span></template>
             </v-data-table>
           </v-window-item>
-
         </v-window>
       </v-card-text>
     </v-card>

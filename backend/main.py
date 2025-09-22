@@ -1,6 +1,9 @@
 import base64
 import pickle
 import secrets
+import time
+import json
+import cv2
 from typing import Annotated, List, Optional
 from lib.encode import *
 from lib.evaluation import *
@@ -23,7 +26,6 @@ import os
 security = HTTPBasic()
 
 with open('config.json', 'r') as config_file:
-    print(1233445)
     config = json.load(config_file)
 
 USERNAME = config.get('username')
@@ -92,14 +94,9 @@ app.add_middleware(
 api_router = APIRouter(prefix="/api")
 
 # --- Pydantic Models for API Requests ---
-
-
-# Renamed from Img for clarity, used by endpoints that only need an image
 class ImageRequest(BaseModel):
     img: str
 
-
-# model for the predict endpoint, including optional HPO IDs
 class PredictRequest(BaseModel):
     img: str
     hpo_ids: Optional[List[str]] = None
@@ -108,24 +105,15 @@ class PredictRequest(BaseModel):
 @api_router.post("/predict")
 async def predict_endpoint(username: Annotated[str, Depends(get_current_username)], request_data: PredictRequest):
     img = readb64(request_data.img)
-    hpo_ids = request_data.hpo_ids # Access the optional HPO IDs
+    hpo_ids = request_data.hpo_ids
 
-    # For verification, print the received HPO IDs
     if hpo_ids:
         print(f"Received HPO IDs: {hpo_ids}")
     else:
         print("No HPO IDs were provided.")
 
     start_time = time.time()
-    timestamp = time.time()
-
-    # Convert the timestamp to a datetime object
-    datetime_obj = datetime.fromtimestamp(timestamp)
-
-    # Format the datetime object as a readable string
-    formatted_time = datetime_obj.strftime('%Y-%m-%d %H:%M:%S')
-
-    print("Formatted Time:", formatted_time)
+    
     try:
         aligned_img = face_align_crop(_cropper_model, img, _device)
     except Exception as e:
@@ -149,10 +137,9 @@ async def predict_endpoint(username: Annotated[str, Depends(get_current_username
         # Step 2: If HPO IDs are provided, query PubCaseFinder
         if hpo_ids:
             pubcasefinder_result = query_pubcasefinder(hpo_ids)
-
-            # Step 3: Combine the results
             final_result = gestaltmatcher_result.copy()
             final_result['pubcasefinder'] = pubcasefinder_result
+            final_result['queried_hpo_ids'] = hpo_ids
         else:
             final_result = gestaltmatcher_result
 
@@ -193,8 +180,6 @@ app.include_router(api_router)
 
 
 # --- Configuration for serving the Vue.js frontend ---
-
-
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
 app.mount("/assets", 
           StaticFiles(directory=os.path.join(STATIC_DIR, "assets"))
@@ -202,15 +187,5 @@ app.mount("/assets",
           )
 @app.get("/{full_path:path}")
 async def serve_vue_app(full_path: str):
-    """
-    Serve the Vue app's index.html for any path that is not an API endpoint or a static file.
-    """
     return FileResponse(os.path.join(STATIC_DIR, "index.html"))
 
-
-#if __name__ == "__main__":
-#    global _models
-#    # _models = []
-#    #_models = get_models()
-#    print(len(_models))
-#    uvicorn.run("main:app", port=5000, log_level="info")

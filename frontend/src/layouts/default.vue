@@ -34,6 +34,13 @@
     router.push('/')
   }
 
+  function changeLanguage (newLocaleCode: string) {
+    // 1. Update the i18n locale for the UI
+    locale.value = newLocaleCode
+    // 2. Update the Pinia store for reactive computations (like in Results.vue)
+    store.setLocale(newLocaleCode)
+  }
+
 </script>
 
 <template>
@@ -123,7 +130,7 @@
           <v-list-item
             v-for="item in availableLocales"
             :key="item.code"
-            @click="locale = item.code"
+            @click="changeLanguage(item.code)"
           >
             <v-list-item-title>{{ item.name }}</v-list-item-title>
           </v-list-item>

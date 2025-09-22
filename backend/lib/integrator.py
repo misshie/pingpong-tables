@@ -48,19 +48,20 @@ def integrate_json(raw_results: Dict[str, Any]) -> Dict[str, Any]:
         if key in raw_results:
             raw_results[key] = _add_gm_rank_and_score(raw_results[key])
     
-    # --- Parse composite OMIM IDs in patients list ---
     patient_key = 'suggested_patients_list'
     if patient_key in raw_results:
         for patient in raw_results[patient_key]:
             numeric_omim, ps_id = _parse_composite_omim(patient.get('omim_id'))
             patient['numeric_omim_id'] = numeric_omim
             patient['phenotypic_series_id'] = ps_id
-            # Use the numeric part for subsequent matching
             patient['omim_id_for_match'] = numeric_omim
 
     # Step 2: Enrich with PubCaseFinder data
-    pcf_results_list = raw_results.get('pubcasefinder')
-    if pcf_results_list and isinstance(pcf_results_list, list):
+    pcf_data = raw_results.get('pubcasefinder')
+    
+    if pcf_data and isinstance(pcf_data, dict) and 'ranked_list' in pcf_data:
+        pcf_results_list = pcf_data.get('ranked_list', [])
+        
         pcf_by_omim = {}
         pcf_by_gene = {}
         for item in pcf_results_list:
@@ -71,21 +72,18 @@ def integrate_json(raw_results: Dict[str, Any]) -> Dict[str, Any]:
                 for gene_symbol in item['hgnc_gene_symbol']:
                     pcf_by_gene[gene_symbol] = {'pubcasefinder_rank': item.get('rank'), 'pubcasefinder_score': item.get('score')}
         
-        # Enrich syndromes list
         if 'suggested_syndromes_list' in raw_results:
             for item in raw_results['suggested_syndromes_list']:
                 omim_id = item.get('omim_id')
                 if omim_id and str(omim_id) in pcf_by_omim:
                     item.update(pcf_by_omim[str(omim_id)])
 
-        # Enrich patients list (using the parsed numeric ID)
         if patient_key in raw_results:
             for item in raw_results[patient_key]:
                 omim_id = item.get('omim_id_for_match')
                 if omim_id and str(omim_id) in pcf_by_omim:
                     item.update(pcf_by_omim[str(omim_id)])
 
-        # Enrich genes list
         if 'suggested_genes_list' in raw_results:
             for item in raw_results['suggested_genes_list']:
                 gene_name = item.get('gene_name')
