@@ -60,7 +60,7 @@
     { title: 'Meta Rank', key: 'meta_rank', align: 'end' },
     { title: 'GM Rank', key: 'gm_rank', align: 'end' },
     { title: 'PCF Rank', key: 'pubcasefinder_rank', align: 'end' },
-    { title: 'GM Patient ID', key: 'subject_id', align: 'start' }, // RENAMED
+    { title: 'GM Patient ID', key: 'subject_id', align: 'start' },
     { title: 'Syndrome Name', key: 'syndrome_name', align: 'start' },
     { title: 'OMIM ID', key: 'numeric_omim_id', align: 'start' },
     { title: 'Phenotypic Series', key: 'phenotypic_series_id', align: 'start' },
@@ -89,6 +89,24 @@
 
   function formatScore (score: number | undefined | null) {
     return typeof score === 'number' ? score.toFixed(4) : '-'
+  }
+
+  // --- ADDED: Custom sort function for ranks ---
+  function rankSort (a: number | null | undefined, b: number | null | undefined) {
+    const aIsNull = a === null || a === undefined
+    const bIsNull = b === null || b === undefined
+
+    if (aIsNull && bIsNull) return 0 // both are null, treat as equal
+    if (aIsNull) return 1 // only a is null, so b comes first (push a to the end)
+    if (bIsNull) return -1 // only b is null, so a comes first (push b to the end)
+
+    return a - b // both are numbers, standard numeric sort
+  }
+
+  const customRankSorters = {
+    meta_rank: rankSort,
+    gm_rank: rankSort,
+    pubcasefinder_rank: rankSort,
   }
 </script>
 
@@ -130,6 +148,7 @@
               variant="solo-filled"
             />
             <v-data-table
+              :custom-key-sort="customRankSorters"
               density="compact"
               :headers="syndromeHeaders"
               item-value="syndrome_name"
@@ -172,6 +191,7 @@
               variant="solo-filled"
             />
             <v-data-table
+              :custom-key-sort="customRankSorters"
               density="compact"
               :headers="geneHeaders"
               item-value="gene_name"
@@ -214,6 +234,7 @@
               variant="solo-filled"
             />
             <v-data-table
+              :custom-key-sort="customRankSorters"
               density="compact"
               :headers="patientHeaders"
               item-value="subject_id"
