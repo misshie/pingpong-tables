@@ -15,6 +15,7 @@
 7. [Author](#author)
 8. [References](#references)
 
+----
 ### **Introduction**
 
 **piNGPong tables** is a web-based application designed to support the diagnosis of rare diseases.
@@ -27,6 +28,7 @@ approach to next-generation phenotyping.
 
 ***piNGPong tables, GestaltMatcher, PubCaseFiner, and external information sources are intended for research and educational purposes only***.
 
+----
 ### **For End-Users (Installation & Usage)**
 
 This section provides instructions for users who want to run the application.
@@ -87,12 +89,11 @@ The initial startup may take about 90 seconds as the API service loads the model
 Once the startup process is complete, open your web browser and navigate to:  
 `https://localhost`
 
-**Security Warning on First Access**
+##### **Security Warning on First Access**
 
-When you first access *piNGPong tables*, your browser may show a potential security warning due to our use of a self-signed certificate.
+When you first access *piNGPong tables*, your browser may show a potential security warning due to our use of a self-signed certificate. This is a normal and expected behavior. To proceed, please click on the button labeled "Advanced" or "Proceed to..." and accept the certificate.
 
-This is a normal and expected behavior. To proceed, please click on the button labeled "Advanced" or "Proceed to..." and accept the certificate.
-
+----
 ### **For Developers**
 
 This section is for developers who wish to contribute to the project.
@@ -106,7 +107,7 @@ This section is for developers who wish to contribute to the project.
 ```
 
 2. Backend Data:  
-   Follow step 2 in the "For End-Users" section to place the required clinical data in the backend/ directory.
+   Follow step 2 in the "For End-Users" section to place the required trained models in the backend directory.
 
 #### **Running in Development Mode**
 
@@ -133,6 +134,7 @@ run the provided script from the project root:
 
 `./build-frontend.sh`
 
+----
 ### **Technology Stack**
 
 * **Frontend:** Vue.js 3, TypeScript, Vuetify, Pinia
@@ -142,7 +144,7 @@ run the provided script from the project root:
 ### **License**
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**.
-See the [LICENSE.md](https://www.google.com/search?q=./LICENSE.md) file for full details.
+See the [LICENSE.md](LICENSE.md) file for full details.
 
 ### **Acknowledgements**
 
