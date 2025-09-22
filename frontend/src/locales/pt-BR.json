@@ -13,7 +13,7 @@
   },
   "analysisDialog": {
     "title": "Carregar Arquivo de Análise",
-    "labelIdle": "Arraste e solte seu arquivo aqui ou <span class='filepond--label-action'> procure </span>",
+    "labelIdle": "Arraste e solte seu arquivo aqui ou <span class='filepond--label-action'> Navegue </span>",
     "status": {
       "noFile": "Nenhum arquivo selecionado.",
       "uploading": "Codificando e carregando...",
@@ -23,6 +23,7 @@
   },
   "resultsPage": {
     "title": "Resultado da Análise",
+    "queriedHpo": "HPO Consultados",
     "modelVersion": "Versão do Modelo",
     "galleryVersion": "Versão da Galeria",
     "tabs": {
@@ -34,7 +35,8 @@
       "genes": "Pesquisar Genes",
       "syndromes": "Pesquisar Síndromes",
       "patients": "Pesquisar Pacientes"
-    }
+    },
+    "noResults": "Nenhum resultado para exibir."
   },
   "settingsDialog": {
     "title": "Configurações",
@@ -48,7 +50,7 @@
   },
   "exportDialog": {
     "title": "Exportar Resultados",
-    "subtitle": "Escolha o seu formato de exportação preferido.",
+    "subtitle": "Escolha seu formato de exportação preferido.",
     "excel": {
       "title": "Formato Excel",
       "description": "Exporte todas as tabelas de resultados (Genes, Síndromes, Pacientes) para um único arquivo .xlsx com várias planilhas.",
@@ -61,13 +63,20 @@
       "button": "Exportar Selecionado como TSV"
     }
   },
+  "aboutDialog": {
+    "title": "Sobre o piNGPong tables",
+    "programmedBy": "Programado por",
+    "poweredBy": "Este aplicativo é desenvolvido com GestaltMatcher e PubCaseFinder.",
+    "disclaimer": "O piNGPong tables destina-se apenas a fins de <strong>pesquisa e educacionais.</strong>"
+  },
   "footer": {
-    "caution": "O GestaltMatcher e o GestaltMatcher GUI destinam-se apenas a fins de pesquisa e educacionais."
+    "caution": "piNGPong tables, GestaltMatcher, PubCaseFinder e outras fontes de dados destinam-se apenas a fins de pesquisa e educacionais."
   },
   "common": {
     "cancel": "Cancelar",
     "submit": "Enviar",
     "save": "Salvar Alterações",
-    "clear": "Limpar Resultado"
+    "clear": "Limpar Resultado",
+    "ok": "OK"
   }
 }

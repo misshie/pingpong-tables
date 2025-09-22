@@ -1,28 +1,29 @@
 {
-   "appTitle": "piNGPong tables",
+  "appTitle": "piNGPong tables",
   "nav": {
     "analysis": "Analyse",
     "export": "Exporter les résultats",
     "settings": "Paramètres",
     "about": "À propos"
   },
-   "startPage": {
-    "welcome": "Bienvenue à",
+  "startPage": {
+    "welcome": "Bienvenue sur",
     "getStarted": "Commencer",
     "pressAnalysis": "Appuyez sur le bouton <strong>Analyse</strong> dans la barre de navigation de gauche pour commencer."
   },
   "analysisDialog": {
     "title": "Télécharger le fichier d'analyse",
-    "labelIdle": "Glissez-déposez votre fichier ici ou <span class='filepond--label-action'> parcourez </span>",
+    "labelIdle": "Glissez-déposez votre fichier ici ou <span class='filepond--label-action'> Parcourir </span>",
     "status": {
       "noFile": "Aucun fichier sélectionné.",
-      "uploading": "Encodage et téléchargement en cours...",
+      "uploading": "Encodage et téléchargement...",
       "success": "Téléchargement réussi.",
       "failure": "Échec du téléchargement."
     }
   },
   "resultsPage": {
     "title": "Résultat de l'analyse",
+    "queriedHpo": "HPO interrogés",
     "modelVersion": "Version du modèle",
     "galleryVersion": "Version de la galerie",
     "tabs": {
@@ -34,7 +35,8 @@
       "genes": "Rechercher des gènes",
       "syndromes": "Rechercher des syndromes",
       "patients": "Rechercher des patients"
-    }
+    },
+    "noResults": "Aucun résultat à afficher."
   },
   "settingsDialog": {
     "title": "Paramètres",
@@ -51,23 +53,30 @@
     "subtitle": "Choisissez votre format d'exportation préféré.",
     "excel": {
       "title": "Format Excel",
-      "description": "Exporter tous les tableaux de résultats (Gènes, Syndromes, Patients) dans un seul fichier .xlsx avec plusieurs feuilles.",
+      "description": "Exporter toutes les tables de résultats (Gènes, Syndromes, Patients) dans un seul fichier .xlsx avec plusieurs feuilles.",
       "button": "Tout exporter vers Excel"
     },
     "tsv": {
       "title": "Format de valeurs séparées par des tabulations (TSV)",
-      "description": "Exporter un seul tableau de résultats en tant que fichier .tsv.",
-      "label": "Sélectionner l'ensemble de données à exporter",
+      "description": "Exporter une seule table de résultats en tant que fichier .tsv.",
+      "label": "Sélectionner le jeu de données à exporter",
       "button": "Exporter la sélection en TSV"
     }
   },
+  "aboutDialog": {
+    "title": "À propos de piNGPong tables",
+    "programmedBy": "Programmé par",
+    "poweredBy": "Cette application est alimentée par GestaltMatcher et PubCaseFinder.",
+    "disclaimer": "piNGPong tables est destiné uniquement à des fins de <strong>recherche et d'éducation.</strong>"
+  },
   "footer": {
-    "caution": "GestaltMatcher et GestaltMatcher GUI sont destinés uniquement à des fins de recherche et d'éducation."
+    "caution": "piNGPong tables, GestaltMatcher, PubCaseFinder et d'autres sources de données sont destinés uniquement à des fins de recherche et d'éducation."
   },
   "common": {
     "cancel": "Annuler",
-    "submit": "Soumettre",
+    "submit": "Envoyer",
     "save": "Enregistrer les modifications",
-    "clear": "Effacer le résultat"
+    "clear": "Effacer le résultat",
+    "ok": "OK"
   }
 }

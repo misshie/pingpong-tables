@@ -1,4 +1,8 @@
 <script setup lang="ts">
+  import { useI18n } from 'vue-i18n'
+
+  const { t } = useI18n()
+
   defineProps<{
     modelValue: boolean
   }>()
@@ -21,22 +25,22 @@
         <v-img
           class="mb-4 mx-auto"
           height="100"
-          src="@/assets/GestaltMatcher.png"
+          src="@/assets/piNGPongTables-Avatar.png"
           style="max-width: 100px;"
         />
 
         <h2 class="text-h5 font-weight-bold mb-4">
-          About GestaltMatcher GUI
+          {{ t('aboutDialog.title') }}
         </h2>
 
         <div class="text-medium-emphasis mb-4 text-body-1">
           <p>
-            Programmed by
+            {{ t('aboutDialog.programmedBy') }}
             <a href="https://github.com/misshie/" rel="noopener noreferrer" target="_blank">
               Hiroyuki Mishima
             </a>
           </p>
-          <p>This application is powered by the GestaltMatcher API.</p>
+          <p>{{ t('aboutDialog.poweredBy') }}</p>
         </div>
 
         <v-alert
@@ -45,8 +49,7 @@
           type="warning"
           variant="tonal"
         >
-          GestaltMatcher and GestaltMatcher GUI are intended for
-          <strong>research and educational purposes only.</strong>
+          <div v-html="t('aboutDialog.disclaimer')" />
         </v-alert>
 
       </v-card-text>
@@ -59,7 +62,7 @@
           class="text-none"
           color="primary"
           min-width="90"
-          text="OK"
+          :text="t('common.ok')"
           variant="flat"
           @click="emit('update:modelValue', false)"
         />

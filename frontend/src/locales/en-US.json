@@ -23,6 +23,7 @@
   },
   "resultsPage": {
     "title": "Analysis Result",
+    "queriedHpo": "Queried HPO",
     "modelVersion": "Model Version",
     "galleryVersion": "Gallery Version",
     "tabs": {
@@ -34,7 +35,8 @@
       "genes": "Search Genes",
       "syndromes": "Search Syndromes",
       "patients": "Search Patients"
-    }
+    },
+    "noResults": "No results to display."
   },
   "settingsDialog": {
     "title": "Settings",
@@ -61,14 +63,21 @@
       "button": "Export Selected as TSV"
     }
   },
+  "aboutDialog": {
+    "title": "About piNGPong tables",
+    "programmedBy": "Programmed by",
+    "poweredBy": "This application is powered by GestaltMatcher and PubCaseFinder.",
+    "disclaimer": "piNGPong tables. GestaltMatcher, PubCaseFinder and other data sources are intended for <strong>research and educational purposes only.</strong>"
+  },
   "footer": {
-    "caution": "GestaltMatcher and GestaltMatcher GUI are intended for research and educational purposes only."
+    "caution": "piNGPong tables, GestaltMatcher, PubCaseFinder and other data souces are intended for research and educational purposes only."
   },
 
   "common": {
     "cancel": "Cancel",
     "submit": "Submit",
     "save": "Save Changes",
-    "clear": "Clear Result"
+    "clear": "Clear Result",
+    "ok": "OK"
   }
 }

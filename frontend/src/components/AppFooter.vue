@@ -60,7 +60,7 @@
       class="text-caption text-disabled"
       style="position: absolute; right: 16px;"
     >
-      &copy; 2025-{{ (new Date()).getFullYear() }} <span class="d-none d-sm-inline-block">Hiroyuki Mishima for GUI </span>
+      &copy; 2025-{{ (new Date()).getFullYear() }} <span class="d-none d-sm-inline-block">Hiroyuki Mishima</span>
       —
       <p>{{ t('footer.caution') }}</p>
     </div>

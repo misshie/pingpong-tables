@@ -6,7 +6,7 @@
     "settings": "设置",
     "about": "关于"
   },
- "startPage": {
+  "startPage": {
     "welcome": "欢迎来到",
     "getStarted": "开始",
     "pressAnalysis": "请按左侧导航栏上的<strong>分析</strong>按钮开始。"
@@ -23,6 +23,7 @@
   },
   "resultsPage": {
     "title": "分析结果",
+    "queriedHpo": "查询的HPO",
     "modelVersion": "模型版本",
     "galleryVersion": "图库版本",
     "tabs": {
@@ -34,11 +35,12 @@
       "genes": "搜索基因",
       "syndromes": "搜索综合征",
       "patients": "搜索患者"
-    }
+    },
+    "noResults": "无结果可显示。"
   },
   "settingsDialog": {
     "title": "设置",
-    "subtitle": "配置API服务器连接详情。",
+    "subtitle": "配置API服务器连接详细信息。",
     "apiServer": "API服务器",
     "host": "主机URI",
     "port": "端口",
@@ -48,26 +50,33 @@
   },
   "exportDialog": {
     "title": "导出结果",
-    "subtitle": "选择您偏好的导出格式。",
+    "subtitle": "选择您喜欢的导出格式。",
     "excel": {
       "title": "Excel格式",
       "description": "将所有结果表（基因、综合征、患者）导出到一个包含多个工作表的.xlsx文件中。",
-      "button": "全部导出到Excel"
+      "button": "全部导出为Excel"
     },
     "tsv": {
-      "title": "制表符分隔值(TSV)格式",
+      "title": "制表符分隔值（TSV）格式",
       "description": "将单个结果表导出为.tsv文件。",
       "label": "选择要导出的数据集",
-      "button": "将所选导出为TSV"
+      "button": "将所选内容导出为TSV"
     }
   },
+  "aboutDialog": {
+    "title": "关于 piNGPong tables",
+    "programmedBy": "编程者",
+    "poweredBy": "此应用程序由GestaltMatcher和PubCaseFinder提供支持。",
+    "disclaimer": "piNGPong tables仅用于<strong>研究和教育目的。</strong>"
+  },
   "footer": {
-    "caution": "GestaltMatcher和GestaltMatcher GUI仅用于研究和教育目的。"
+    "caution": "piNGPong tables、GestaltMatcher、PubCaseFinder及其他数据源仅用于研究和教育目的。"
   },
   "common": {
     "cancel": "取消",
     "submit": "提交",
     "save": "保存更改",
-    "clear": "清除结果"
+    "clear": "清除结果",
+    "ok": "确定"
   }
 }

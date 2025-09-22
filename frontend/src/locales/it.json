@@ -1,12 +1,12 @@
 {
   "appTitle": "piNGPong tables",
-   "nav": {
+  "nav": {
     "analysis": "Analisi",
     "export": "Esporta Risultati",
     "settings": "Impostazioni",
     "about": "Informazioni"
   },
-   "startPage": {
+  "startPage": {
     "welcome": "Benvenuto a",
     "getStarted": "Inizia",
     "pressAnalysis": "Premi il pulsante <strong>Analisi</strong> nella barra di navigazione a sinistra per iniziare."
@@ -16,13 +16,14 @@
     "labelIdle": "Trascina e rilascia il tuo file qui o <span class='filepond--label-action'> Sfoglia </span>",
     "status": {
       "noFile": "Nessun file selezionato.",
-      "uploading": "Codifica e caricamento in corso...",
+      "uploading": "Codifica e caricamento...",
       "success": "Caricamento riuscito.",
       "failure": "Caricamento fallito."
     }
   },
   "resultsPage": {
     "title": "Risultato dell'Analisi",
+    "queriedHpo": "HPO Interrogati",
     "modelVersion": "Versione Modello",
     "galleryVersion": "Versione Galleria",
     "tabs": {
@@ -34,11 +35,12 @@
       "genes": "Cerca Geni",
       "syndromes": "Cerca Sindromi",
       "patients": "Cerca Pazienti"
-    }
+    },
+    "noResults": "Nessun risultato da visualizzare."
   },
   "settingsDialog": {
     "title": "Impostazioni",
-    "subtitle": "Configura i dettagli della connessione al server API.",
+    "subtitle": "Configura i dettagli di connessione al server API.",
     "apiServer": "Server API",
     "host": "URI Host",
     "port": "Porta",
@@ -48,7 +50,7 @@
   },
   "exportDialog": {
     "title": "Esporta Risultati",
-    "subtitle": "Scegli il formato di esportazione preferito.",
+    "subtitle": "Scegli il tuo formato di esportazione preferito.",
     "excel": {
       "title": "Formato Excel",
       "description": "Esporta tutte le tabelle dei risultati (Geni, Sindromi, Pazienti) in un unico file .xlsx con più fogli.",
@@ -58,16 +60,23 @@
       "title": "Formato Valori Separati da Tabulazione (TSV)",
       "description": "Esporta una singola tabella di risultati come file .tsv.",
       "label": "Seleziona il set di dati da esportare",
-      "button": "Esporta selezione come TSV"
+      "button": "Esporta Selezionato come TSV"
     }
   },
+  "aboutDialog": {
+    "title": "Informazioni su piNGPong tables",
+    "programmedBy": "Programmato da",
+    "poweredBy": "Questa applicazione è alimentata da GestaltMatcher e PubCaseFinder.",
+    "disclaimer": "piNGPong tables è destinato esclusivamente a scopi di <strong>ricerca e didattici.</strong>"
+  },
   "footer": {
-    "caution": "GestaltMatcher e GestaltMatcher GUI sono destinati esclusivamente a scopi di ricerca e didattici."
+    "caution": "piNGPong tables, GestaltMatcher, PubCaseFinder e altre fonti di dati sono destinati esclusivamente a scopi di ricerca e didattici."
   },
   "common": {
     "cancel": "Annulla",
     "submit": "Invia",
     "save": "Salva Modifiche",
-    "clear": "Cancella Risultato"
+    "clear": "Cancella Risultato",
+    "ok": "OK"
   }
 }

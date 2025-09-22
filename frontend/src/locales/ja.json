@@ -2,17 +2,17 @@
   "appTitle": "piNGPong tables",
   "nav": {
     "analysis": "解析",
-    "export": "エクスポート",
+    "export": "結果のエクスポート",
     "settings": "設定",
     "about": "情報"
   },
-    "startPage": {
+  "startPage": {
     "welcome": "ようこそ",
-    "getStarted": "はじめに",
+    "getStarted": "はじめましょう",
     "pressAnalysis": "左のナビゲーションバーにある<strong>解析</strong>ボタンを押して、解析を開始してください。"
   },
   "analysisDialog": {
-    "title": "解析ファイルのアップロード",
+    "title": "解析ファイルをアップロード",
     "labelIdle": "ここにファイルをドラッグ＆ドロップするか、<span class='filepond--label-action'>参照</span>してください",
     "status": {
       "noFile": "ファイルが選択されていません。",
@@ -23,18 +23,20 @@
   },
   "resultsPage": {
     "title": "解析結果",
+    "queriedHpo": "問い合わせたHPO",
     "modelVersion": "モデルバージョン",
     "galleryVersion": "ギャラリーバージョン",
     "tabs": {
       "genes": "遺伝子",
       "syndromes": "症候群",
-      "patients": "患者"
+      "patients": "症例"
     },
     "search": {
       "genes": "遺伝子を検索",
       "syndromes": "症候群を検索",
-      "patients": "症例を検索"
-    }
+      "patients": "患者を検索"
+    },
+    "noResults": "表示する結果がありません。"
   },
   "settingsDialog": {
     "title": "設定",
@@ -51,24 +53,30 @@
     "subtitle": "希望のエクスポート形式を選択してください。",
     "excel": {
       "title": "Excel形式",
-      "description": "すべての結果テーブル（遺伝子、症候群、症例）を、複数のシートを持つ単一の.xlsxファイルにエクスポートします。",
-      "button": "すべてExcelにエクスポート"
+      "description": "すべての結果テーブル（遺伝子、症候群、患者）を、複数のシートを持つ単一の.xlsxファイルにエクスポートします。",
+      "button": "すべてをExcelにエクスポート"
     },
     "tsv": {
       "title": "タブ区切り値（TSV）形式",
       "description": "単一の結果テーブルを.tsvファイルとしてエクスポートします。",
       "label": "エクスポートするデータセットを選択",
-      "button": "選択したものをTSVでエクスポート"
+      "button": "選択した項目をTSVとしてエクスポート"
     }
   },
-
-    "footer": {
-    "caution": "GestaltMatcher と GestaltMatcherGUI は研究および教育目的でのみに限った利用されることを意図しています。"
+  "aboutDialog": {
+    "title": "piNGPong tablesについて",
+    "programmedBy": "プログラム作成者",
+    "poweredBy": "このアプリケーションはGestaltMatcherとPubCaseFinderを利用して動作しています。",
+    "disclaimer": "piNGPong tables, GestaltMatcher, PubCaseFinder, およびその他の情報源は、<strong>研究および教育目的</strong>でのみ使用されることを意図しています。"
+  },
+  "footer": {
+    "caution": "piNGPong tables、GestaltMatcher、PubCaseFinder、およびその他の情報源は、研究および教育目的でのみ使用されることを意図しています。"
   },
   "common": {
     "cancel": "キャンセル",
     "submit": "送信",
     "save": "変更を保存",
-    "clear": "結果をクリア"
+    "clear": "結果をクリア",
+    "ok": "OK"
   }
 }

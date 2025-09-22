@@ -16,29 +16,31 @@
     "labelIdle": "Datei hierher ziehen oder <span class='filepond--label-action'> durchsuchen </span>",
     "status": {
       "noFile": "Keine Datei ausgewählt.",
-      "uploading": "Kodierung und Upload läuft...",
+      "uploading": "Kodierung und Upload...",
       "success": "Upload erfolgreich.",
       "failure": "Upload fehlgeschlagen."
     }
   },
   "resultsPage": {
     "title": "Analyseergebnis",
+    "queriedHpo": "Abgefragte HPO",
     "modelVersion": "Modellversion",
-    "galleryVersion": "Galerie-Version",
+    "galleryVersion": "Galerieversion",
     "tabs": {
       "genes": "Gene",
       "syndromes": "Syndrome",
       "patients": "Patienten"
     },
     "search": {
-      "genes": "Gene suchen",
-      "syndromes": "Syndrome suchen",
-      "patients": "Patienten suchen"
-    }
+      "genes": "Gene durchsuchen",
+      "syndromes": "Syndrome durchsuchen",
+      "patients": "Patienten durchsuchen"
+    },
+    "noResults": "Keine Ergebnisse zum Anzeigen."
   },
   "settingsDialog": {
     "title": "Einstellungen",
-    "subtitle": "Verbindungsdetails für den API-Server konfigurieren.",
+    "subtitle": "Verbindungsdetails des API-Servers konfigurieren.",
     "apiServer": "API-Server",
     "host": "Host-URI",
     "port": "Port",
@@ -55,20 +57,26 @@
       "button": "Alle nach Excel exportieren"
     },
     "tsv": {
-      "title": "Tabulator-getrennte Werte (TSV) Format",
+      "title": "Tabulatorgetrennte Werte (TSV)-Format",
       "description": "Eine einzelne Ergebnistabelle als .tsv-Datei exportieren.",
       "label": "Zu exportierenden Datensatz auswählen",
       "button": "Auswahl als TSV exportieren"
     }
   },
+  "aboutDialog": {
+    "title": "Über piNGPong tables",
+    "programmedBy": "Programmiert von",
+    "poweredBy": "Diese Anwendung wird von GestaltMatcher und PubCaseFinder unterstützt.",
+    "disclaimer": "piNGPong tables ist nur für <strong>Forschungs- und Bildungszwecke</strong> bestimmt."
+  },
   "footer": {
-    "caution": "GestaltMatcher und GestaltMatcher GUI sind ausschließlich für Forschungs- und Bildungszwecke bestimmt."
+    "caution": "piNGPong tables, GestaltMatcher, PubCaseFinder und andere Datenquellen sind nur für Forschungs- und Bildungszwecke bestimmt."
   },
   "common": {
     "cancel": "Abbrechen",
     "submit": "Senden",
     "save": "Änderungen speichern",
-    "clear": "Ergebnis löschen"
+    "clear": "Ergebnis löschen",
+    "ok": "OK"
   }
 }
-

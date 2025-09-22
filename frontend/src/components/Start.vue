@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { computed } from 'vue'
   import { useI18n } from 'vue-i18n'
 
   const { t } = useI18n()
@@ -8,14 +9,14 @@
     {
       href: 'https://www.gestaltmatcher.org/',
       icon: 'mdi-home-variant-outline',
-      title: 'Project Homepage',
-      subtitle: 'Visit the main project website.',
+      title: 'GestaltMatcher',
+      subtitle: 'Visit the GestaltMatcher project website.',
     },
     {
       href: 'https://en.wikipedia.org/wiki/GestaltMatcher',
       icon: 'mdi-wikipedia',
       title: 'Wikipedia Article',
-      subtitle: 'Read more on Wikipedia.',
+      subtitle: 'GestaltMatcher on Wikipedia.',
     },
     {
       href: 'https://db.gestaltmatcher.org/',
@@ -27,7 +28,7 @@
       href: 'https://pubcasefinder.dbcls.jp/?lang=en',
       icon: 'mdi-book-search-outline',
       title: 'PubCaseFinder',
-      subtitle: 'Search System for Rare Genetic Diseases.',
+      subtitle: 'HPO-based Analysis for Rare Genetic Diseases.',
     },
   ]
 
@@ -36,49 +37,82 @@
     {
       href: 'https://github.com/misshie/pingpong-tables',
       icon: 'mdi-github',
-      title: 'piNGPong tables Repository',
+      title: 'piNGPong tables GitHub repository',
     },
   ]
 
-  // Publications
+  // Updated Publications list
   const publications = [
+    // GestaltMatcher Publications
     {
-      title: 'Next-generation phenotyping integrated in a national framework for patients with ultrarare disorders improves genetic diagnostics and yields new molecular findings',
-      authors: 'Schmidt, Axel; et al.',
-      journal: 'Nature Genetics. 56 (8): 1644–1653',
-      year: 2024,
-      doi: '10.1038/s41588-024-01836-1',
+      category: 'GestaltMatcher',
+      title: 'GestaltMatcher facilitates rare disease matching using facial phenotype descriptors',
+      authors: 'Hsieh, T.-C. et al.',
+      journal: 'Nature Genetics, 54(3), 349-357',
+      year: 2022,
+      doi: '10.1038/s41588-021-01010-x',
     },
     {
+      category: 'GestaltMatcher',
+      title: 'Improving deep facial phenotyping for ultra-rare disorder verification using model ensembles',
+      authors: 'Hustinx, A. et al.',
+      journal: '2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)',
+      year: 2023,
+      doi: '10.1109/wacv56688.2023.00499',
+    },
+    {
+      category: 'GestaltMatcher',
       title: 'GestaltMatcher Database - A global reference for facial phenotypic variability in rare human diseases',
-      authors: 'Lesmann, Hellen; et al.',
+      authors: 'Lesmann, H. et al.',
       journal: 'medRxiv',
       year: 2024,
       doi: '10.1101/2023.06.06.23290887',
     },
+    // PubCaseFinder Publications
     {
-      title: 'Improving Deep Facial Phenotyping for Ultra-rare Disorder Verification Using Model Ensembles',
-      authors: 'Hustinx, Alexander; et al.',
-      journal: 'WACV',
-      year: 2023,
-      doi: '10.1109/WACV56688.2023.00499',
-      pdfUrl: 'https://openaccess.thecvf.com/content/WACV2023/papers/Hustinx_Improving_Deep_Facial_Phenotyping_for_Ultra-Rare_Disorder_Verification_Using_Model_WACV_2023_paper.pdf',
+      category: 'PubCaseFinder',
+      title: 'Ontology-based expansion of virtual gene panels to improve diagnostic efficiency for rare genetic diseases',
+      authors: 'Shin, J., Fujiwara, T., Saitsu, H., & Yamaguchi, A.',
+      journal: 'BMC medical informatics and decision making, 25(Suppl 1), 59',
+      year: 2025,
+      doi: '10.1186/s12911-025-02910-2',
     },
     {
-      title: 'Few-Shot Meta-Learning for Recognizing Facial Phenotypes of Genetic Disorders',
-      authors: 'Sümer, Ömer; et al.',
-      journal: 'Studies in Health Technology and Informatics. Vol. 302',
-      year: 2023,
-      doi: '10.3233/SHTI230312',
-    },
-    {
-      title: 'GestaltMatcher facilitates rare disease matching using facial phenotype descriptors',
-      authors: 'Hsieh, Tzung-Chien; et al.',
-      journal: 'Nature Genetics. 54 (3): 349–357',
+      category: 'PubCaseFinder',
+      title: 'Advances in the development of PubCaseFinder, including the new application programming interface and matching algorithm',
+      authors: 'Fujiwara, T., Shin, J. M., & Yamaguchi, A.',
+      journal: 'Human mutation',
       year: 2022,
-      doi: '10.1038/s41588-021-01010-x',
+      doi: '10.1002/humu.24341',
+    },
+    {
+      category: 'PubCaseFinder',
+      title: 'Gene Ranking based on Paths from Phenotypes to Genes on Knowledge Graph',
+      authors: 'Yamaguchi, A., Shin, J. M., & Fujiwara, T.',
+      journal: 'The 10th International Joint Conference on Knowledge Graphs',
+      year: 2021,
+      doi: '10.1145/3502223.3502240',
+    },
+    {
+      category: 'PubCaseFinder',
+      title: 'PubCaseFinder: A case-report-based, phenotype-driven differential-diagnosis system for rare diseases',
+      authors: 'Fujiwara, T., Yamamoto, Y., Kim, J. D., Buske, O., & Takagi, T.',
+      journal: 'The American Journal of Human Genetics, 103(3), 389-399',
+      year: 2018,
+      doi: '10.1016/j.ajhg.2018.08.003',
     },
   ]
+
+  // Group publications by category for easier rendering
+  const groupedPublications = computed(() => {
+    return publications.reduce((acc, pub) => {
+      if (!acc[pub.category]) {
+        acc[pub.category] = []
+      }
+      acc[pub.category].push(pub)
+      return acc
+    }, {} as Record<string, typeof publications>)
+  })
 </script>
 
 <template>
@@ -91,9 +125,8 @@
         src="@/assets/piNGPongTables.png"
         style="max-width: 600px;"
       />
-      <!---- <h1 class="text-h4 font-weight-bold">piNGPong tables</h1> -->
       <div class="text-body-1 font-weight-light mt-2 mb-6">
-        Next-Generation Phenotyping with AI and FAIR data
+        Next-Generation Phenotyping powered by GestaltMatcher and PubCaseFinder
       </div>
 
       <!-- Call to Action -->
@@ -161,46 +194,40 @@
 
       <!-- Publications -->
       <div class="text-left">
-        <h3 class="text-h6 font-weight-medium mb-2">Publications</h3>
-        <v-list bg-color="transparent" lines="three">
-          <v-list-item
-            v-for="(pub, i) in publications"
-            :key="i"
-            class="mb-2"
-            rounded="lg"
-            variant="tonal"
-          >
-            <v-list-item-title class="font-weight-bold mb-1" style="white-space: normal;">
-              {{ pub.title }}
-            </v-list-item-title>
-            <v-list-item-subtitle style="white-space: normal;">
-              {{ pub.authors }} ({{ pub.year }})<br><em>{{ pub.journal }}</em>
-            </v-list-item-subtitle>
+        <h3 class="text-h6 font-weight-medium mb-4">Publications</h3>
+        <div v-for="(pubs, category) in groupedPublications" :key="category" class="mb-6">
+          <h4 class="text-subtitle-1 font-weight-bold mb-3">{{ category }}</h4>
+          <v-list bg-color="transparent" lines="three" class="pa-0">
+            <v-list-item
+              v-for="(pub, i) in pubs"
+              :key="i"
+              class="mb-2"
+              rounded="lg"
+              variant="tonal"
+            >
+              <v-list-item-title class="font-weight-bold mb-1" style="white-space: normal;">
+                {{ pub.title }}
+              </v-list-item-title>
+              <v-list-item-subtitle style="white-space: normal;">
+                {{ pub.authors }} ({{ pub.year }})<br><em>{{ pub.journal }}</em>
+              </v-list-item-subtitle>
 
-            <template #append>
-              <div class="d-flex flex-column ga-2">
-                <v-btn
-                  v-if="pub.doi"
-                  :href="`https://doi.org/${pub.doi}`"
-                  icon="mdi-book-open-variant"
-                  rel="noopener noreferrer"
-                  size="small"
-                  target="_blank"
-                  variant="text"
-                />
-                <v-btn
-                  v-if="pub.pdfUrl"
-                  :href="pub.pdfUrl"
-                  icon="mdi-file-pdf-box"
-                  rel="noopener noreferrer"
-                  size="small"
-                  target="_blank"
-                  variant="text"
-                />
-              </div>
-            </template>
-          </v-list-item>
-        </v-list>
+              <template #append>
+                <div class="d-flex flex-column ga-2">
+                  <v-btn
+                    v-if="pub.doi"
+                    :href="`https://doi.org/${pub.doi}`"
+                    icon="mdi-book-open-variant"
+                    rel="noopener noreferrer"
+                    size="small"
+                    target="_blank"
+                    variant="text"
+                  />
+                </div>
+              </template>
+            </v-list-item>
+          </v-list>
+        </div>
       </div>
       <div class="py-12" />
     </v-responsive>

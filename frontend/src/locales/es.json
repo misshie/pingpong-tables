@@ -6,14 +6,14 @@
     "settings": "Configuración",
     "about": "Acerca de"
   },
-   "startPage": {
+  "startPage": {
     "welcome": "Bienvenido a",
     "getStarted": "Empezar",
     "pressAnalysis": "Presione el botón <strong>Análisis</strong> en la barra de navegación izquierda para empezar."
   },
   "analysisDialog": {
     "title": "Subir archivo de análisis",
-    "labelIdle": "Arrastra y suelta tu archivo aquí o <span class='filepond--label-action'> examina </span>",
+    "labelIdle": "Arrastre y suelte su archivo aquí o <span class='filepond--label-action'> busque </span>",
     "status": {
       "noFile": "No se ha seleccionado ningún archivo.",
       "uploading": "Codificando y subiendo...",
@@ -23,6 +23,7 @@
   },
   "resultsPage": {
     "title": "Resultado del análisis",
+    "queriedHpo": "HPO consultados",
     "modelVersion": "Versión del modelo",
     "galleryVersion": "Versión de la galería",
     "tabs": {
@@ -34,11 +35,12 @@
       "genes": "Buscar genes",
       "syndromes": "Buscar síndromes",
       "patients": "Buscar pacientes"
-    }
+    },
+    "noResults": "No hay resultados para mostrar."
   },
   "settingsDialog": {
     "title": "Configuración",
-    "subtitle": "Configurar los detalles de conexión del servidor API.",
+    "subtitle": "Configure los detalles de conexión del servidor API.",
     "apiServer": "Servidor API",
     "host": "URI del host",
     "port": "Puerto",
@@ -51,23 +53,30 @@
     "subtitle": "Elija su formato de exportación preferido.",
     "excel": {
       "title": "Formato Excel",
-      "description": "Exportar todas las tablas de resultados (Genes, Síndromes, Pacientes) a un único archivo .xlsx con múltiples hojas.",
+      "description": "Exporte todas las tablas de resultados (Genes, Síndromes, Pacientes) a un único archivo .xlsx con múltiples hojas.",
       "button": "Exportar todo a Excel"
     },
     "tsv": {
       "title": "Formato de valores separados por tabuladores (TSV)",
-      "description": "Exportar una sola tabla de resultados como un archivo .tsv.",
-      "label": "Seleccionar conjunto de datos para exportar",
+      "description": "Exporte una única tabla de resultados como un archivo .tsv.",
+      "label": "Seleccione el conjunto de datos a exportar",
       "button": "Exportar selección como TSV"
     }
   },
+  "aboutDialog": {
+    "title": "Acerca de piNGPong tables",
+    "programmedBy": "Programado por",
+    "poweredBy": "Esta aplicación es impulsada por GestaltMatcher y PubCaseFinder.",
+    "disclaimer": "piNGPong tables está destinado únicamente para fines de <strong>investigación y educativos.</strong>"
+  },
   "footer": {
-    "caution": "GestaltMatcher y GestaltMatcher GUI están destinados únicamente para fines de investigación y educativos."
+    "caution": "piNGPong tables, GestaltMatcher, PubCaseFinder y otras fuentes de datos están destinados únicamente para fines de investigación y educativos."
   },
   "common": {
     "cancel": "Cancelar",
     "submit": "Enviar",
     "save": "Guardar cambios",
-    "clear": "Borrar resultado"
+    "clear": "Borrar resultado",
+    "ok": "Aceptar"
   }
 }
