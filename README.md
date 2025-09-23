@@ -45,18 +45,18 @@ Download latest release zip file and unzip.
 #### **2. Place Trained Models**
 
 Due to ethical reasons the pretrained models are not made available publicly. \
-Once access has been granted to GMDB, the pretrained model weights can be requested as well.
+Once access has been granted to [GestaltMatcher Database (GMDB)](https://db.gestaltmatcher.org/), the pretrained model weights can be requested as well.
 
-Save the following files in `backend/saved_models/`
+Savehe following pretrained feauture extractor/encoder model files in `backend/saved_models/`
 1. `Resnet50_Final.pth` (for the face alignment)
 2. `glint360k_r50.onnx` (base pre-trained model for model a)
 3. `glint360k_r100.onnx` (base pre-trained model for model b)
 
-Trained models by GestaltMatcher Database in `backend/data`
+Trained feature space models by GestaltMatcher Database in `backend/data`
 1. `s1_glint360k_r50_512d_gmdb__v1.1.0_bs64_size112_channels3_last_model.pth` (model 1 for the encoding)
 2. `s2_glint360k_r100_512d_gmdb__v1.1.0_bs128_size112_channels3_last_model.pth` (model 2 for the encoding)
 
-Gellery Encodings by GestaltMatcher Database in `backend/data/gellery_encodings`
+Gellery Encodings of annotation of each case by GestaltMatcher Database in `backend/data/gellery_encodings`
 1. `GMDB_gallery_encodings_20082024_v1.1.0_service.pkl`
 
 You need to place the separately distributed clinical data files into the backend/ directory.
@@ -137,11 +137,20 @@ run the provided script from the project root:
 ----
 ### **Technology Stack**
 
-* **Frontend:** Vue.js 3, TypeScript, Vuetify, Pinia
-* **Backend:** Python 3, FastAPI  
-* **Infrastructure:** Docker, Docker Compose, Nginx
+* **Frontend:** [![Vue.js 3](https://img.shields.io/badge/Vue.js-3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vuetify](https://img.shields.io/badge/Vuetify-1867C0?style=for-the-badge&logo=vuetify&logoColor=white)](https://vuetifyjs.com/)
+[![FilePond](https://img.shields.io/badge/FilePond-000000?style=for-the-badge&logo=filepond&logoColor=white)](https://pqina.nl/filepond/)
+[![Pinia](https://img.shields.io/badge/pinia-%23F8E035.svg?style=for-the-badge&logo=pinia&logoColor=black)](https://pinia.vuejs.org/)
+* **Backend:** [![Python 3](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+* **Infrastructure:** [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)](https://www.nginx.com/)
 
 ### **License**
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc/4.0/)
+
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**.
 See the [LICENSE.md](LICENSE.md) file for full details.
