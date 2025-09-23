@@ -137,13 +137,18 @@ run the provided script from the project root:
 ----
 ### **Technology Stack**
 
-* **Frontend:** Vue.js 3, TypeScript, Vuetify, Pinia
-* **Backend:** Python 3, FastAPI  
-* **Infrastructure:** Docker, Docker Compose, Nginx
+* **Frontend:** [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vuetify](https://img.shields.io/badge/Vuetify-1867C0?style=for-the-badge&logo=vuetify&logoColor=white)](https://vuetifyjs.com/)
+[![FilePond](https://img.shields.io/badge/FilePond-000000?style=for-the-badge&logo=filepond&logoColor=white)](https://pqina.nl/filepond/)
+[![Pinia](https://img.shields.io/badge/pinia-%23F8E035.svg?style=for-the-badge&logo=pinia&logoColor=black)](https://pinia.vuejs.org/)
+* **Backend:** [![Python 3](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+* **Infrastructure:** [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)](https://www.nginx.com/)
 
 ### **License**
 
-![GitHub License](https://img.shields.io/github/license/misshie/pingpong-tables)
+[![Creative Commons License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc/4.0/)
 
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**.
