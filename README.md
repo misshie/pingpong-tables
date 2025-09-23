@@ -23,8 +23,8 @@
 It integrates facial phenotype analysis from images with clinical information (HPO IDs) to provide
 a comprehensive view for clinical geneticists and medical researchers.
 
-The application leverages the analytical power of GestaltMatcher for image-based predictions
-and complements it with data from PubCaseFinder for HPO-based queries, offering a multi-faceted
+The application leverages the analytical power of [GestaltMatcher](https://www.gestaltmatcher.org/) for image-based predictions
+and complements it with data from [PubCaseFinder](https://pubcasefinder.dbcls.jp/?lang=en) for HPO-based phenotipic analysis, offering a multi-modal
 approach to next-generation phenotyping.
 
 ***piNGPong tables, GestaltMatcher, PubCaseFiner, and external information sources are intended for research and educational purposes only***.
