@@ -4,7 +4,7 @@
 
 <img src="./assets/piNGPongTables.png" width="80%" alt="pingpon tables" />
 
-### **Table of Contents**
+## **Table of Contents**
 
 1. [Introduction](#introduction)
 2. [For End-Users (Installation & Usage)](#for-end-users-installation--usage)  
@@ -17,7 +17,7 @@
 9. [References](#references)
 
 ----
-### **Introduction**
+## **Introduction**
 
 **piNGPong tables** is a web-based application designed to support the diagnosis of rare diseases.
 It integrates facial phenotype analysis from images with clinical information (HPO IDs) to provide
@@ -30,20 +30,20 @@ approach to next-generation phenotyping.
 ***piNGPong tables, GestaltMatcher, PubCaseFinder, and external information sources are intended for research and educational purposes only***.
 
 ----
-### **For End-Users (Installation & Usage)**
+## **For End-Users (Installation & Usage)**
 
 This section provides instructions for users who want to run the application.
 No front-end development environment is required.
 
-#### **Prerequisites**
+### **Prerequisites**
 
 * Docker and Docker Compose must be installed on your system.
 
-#### **1. Get the Application**
+### **1. Get the Application**
 
 Download latest release zip file and unzip.
 
-#### **2. Place Trained Models**
+### **2. Place Trained Models**
 
 Due to ethical reasons the pretrained models are not made available publicly. \
 Once access has been granted to [GestaltMatcher Database (GMDB)](https://db.gestaltmatcher.org/), the pretrained model weights can be requested as well.
@@ -73,7 +73,7 @@ pingpong-tables/
     └── ... (other backend files)
 ```
 
-#### **3. Build and Run the Application**
+### **3. Build and Run the Application**
 
 Navigate to the backend directory and use Docker Compose to build and start the services.
 
@@ -85,21 +85,20 @@ docker compose up -d     # without `-d`, you can watch logs on console.
 
 The initial startup may take about 90 seconds as the API service loads the models.
 
-#### **4. Access the Application**
+### **4. Access the Application**
 
 Once the startup process is complete, open your web browser and navigate to:  
 `https://localhost`
 
-##### **Security Warning on First Access**
+#### **Security Warning on First Access**
 
 When you first access *piNGPong tables*, your browser may show a potential security warning due to our use of a self-signed certificate. This is a normal and expected behavior. To proceed, please click on the button labeled "Advanced" or "Proceed to..." and accept the certificate.
 
-----
-### **For Developers**
+## **For Developers**
 
 This section is for developers who wish to contribute to the project.
 
-#### **Initial Setup**
+### **Initial Setup**
 
 1. **Frontend Dependencies:**
 ```
@@ -110,7 +109,7 @@ This section is for developers who wish to contribute to the project.
 2. Backend Data:  
    Follow step 2 in the "For End-Users" section to place the required trained models in the backend directory.
 
-#### **Running in Development Mode**
+### **Running in Development Mode**
 
 1. **Start Frontend Dev Server:**
 ```
@@ -128,15 +127,14 @@ This section is for developers who wish to contribute to the project.
    The frontend will now be available at http://localhost:3000 with hot-reloading enabled,
    and it will communicate with the API server running inside Docker.
 
-#### **Building the Frontend**
+### **Building the Frontend**
 
 To build the production-ready frontend and copy it to the backend's static directory,
 run the provided script from the project root:
 
 `./build-frontend.sh`
 
-----
-### **Technology Stack**
+## **Technology Stack**
 
 * **Frontend:** [![Vue.js 3](https://img.shields.io/badge/Vue.js-3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -148,7 +146,7 @@ run the provided script from the project root:
 * **Infrastructure:** [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)](https://www.nginx.com/)
 
-### **License**
+## **License**
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc/4.0/)
 
@@ -156,7 +154,7 @@ run the provided script from the project root:
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**.
 See the [LICENSE.md](LICENSE.md) file for full details.
 
-### **Acknowledgements**
+## **Acknowledgements**
 
 The backend service of this project is based on the work of
 [GestaltMatcher](https://www.gestaltmatcher.org/) with their [repository](https://github.com/igsb/GestaltMatcher-Arc/).
@@ -164,7 +162,7 @@ The backend service utilizes the API of PubCaseFinder; see [detailed description
 
 We would like to thank all participants and organizers of the [DBCLS BioHackathon 2025](https://2025.biohackathon.org/) (September 14-20, 2025, Mie, Japan) for their valuable discussions and support, which contributed significantly to the development of this project.
 
-### **Author**
+## **Author**
 
 * **Hiroyuki Mishima** (三嶋 博之)*
 * Department of Human Genetics, Atomic Bomb Disease Institute, Nagasaki University*  
