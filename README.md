@@ -45,18 +45,18 @@ Download latest release zip file and unzip.
 #### **2. Place Trained Models**
 
 Due to ethical reasons the pretrained models are not made available publicly. \
-Once access has been granted to GMDB, the pretrained model weights can be requested as well.
+Once access has been granted to [GestaltMatcher Database (GMDB)](https://db.gestaltmatcher.org/), the pretrained model weights can be requested as well.
 
-Save the following files in `backend/saved_models/`
+Savehe following pretrained feauture extractor/encoder model files in `backend/saved_models/`
 1. `Resnet50_Final.pth` (for the face alignment)
 2. `glint360k_r50.onnx` (base pre-trained model for model a)
 3. `glint360k_r100.onnx` (base pre-trained model for model b)
 
-Trained models by GestaltMatcher Database in `backend/data`
+Trained feature space models by GestaltMatcher Database in `backend/data`
 1. `s1_glint360k_r50_512d_gmdb__v1.1.0_bs64_size112_channels3_last_model.pth` (model 1 for the encoding)
 2. `s2_glint360k_r100_512d_gmdb__v1.1.0_bs128_size112_channels3_last_model.pth` (model 2 for the encoding)
 
-Gellery Encodings by GestaltMatcher Database in `backend/data/gellery_encodings`
+Gellery Encodings of annotation of each case by GestaltMatcher Database in `backend/data/gellery_encodings`
 1. `GMDB_gallery_encodings_20082024_v1.1.0_service.pkl`
 
 You need to place the separately distributed clinical data files into the backend/ directory.
@@ -142,6 +142,9 @@ run the provided script from the project root:
 * **Infrastructure:** Docker, Docker Compose, Nginx
 
 ### **License**
+
+![GitHub License](https://img.shields.io/github/license/misshie/pingpong-tables)
+
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**.
 See the [LICENSE.md](LICENSE.md) file for full details.
