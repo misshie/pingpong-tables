@@ -23,11 +23,11 @@
 It integrates facial phenotype analysis from images with clinical information (HPO IDs) to provide
 a comprehensive view for clinical geneticists and medical researchers.
 
-The application leverages the analytical power of GestaltMatcher for image-based predictions
-and complements it with data from PubCaseFinder for HPO-based queries, offering a multi-faceted
+The application leverages the analytical power of [GestaltMatcher](https://www.gestaltmatcher.org/) for image-based predictions
+and complements it with data from [PubCaseFinder](https://pubcasefinder.dbcls.jp/?lang=en) for HPO-based phenotypic analysis, offering a multi-modal
 approach to next-generation phenotyping.
 
-***piNGPong tables, GestaltMatcher, PubCaseFiner, and external information sources are intended for research and educational purposes only***.
+***piNGPong tables, GestaltMatcher, PubCaseFinder, and external information sources are intended for research and educational purposes only***.
 
 ----
 ### **For End-Users (Installation & Usage)**
@@ -48,7 +48,7 @@ Download latest release zip file and unzip.
 Due to ethical reasons the pretrained models are not made available publicly. \
 Once access has been granted to [GestaltMatcher Database (GMDB)](https://db.gestaltmatcher.org/), the pretrained model weights can be requested as well.
 
-Savehe following pretrained feauture extractor/encoder model files in `backend/saved_models/`
+Save the following pretrained feauture extractor/encoder model files in `backend/saved_models/`
 1. `Resnet50_Final.pth` (for the face alignment)
 2. `glint360k_r50.onnx` (base pre-trained model for model a)
 3. `glint360k_r100.onnx` (base pre-trained model for model b)
@@ -57,7 +57,7 @@ Trained feature space models by GestaltMatcher Database in `backend/data`
 1. `s1_glint360k_r50_512d_gmdb__v1.1.0_bs64_size112_channels3_last_model.pth` (model 1 for the encoding)
 2. `s2_glint360k_r100_512d_gmdb__v1.1.0_bs128_size112_channels3_last_model.pth` (model 2 for the encoding)
 
-Gellery Encodings of annotation of each case by GestaltMatcher Database in `backend/data/gellery_encodings`
+Gallery Encodings of annotation of each case by GestaltMatcher Database in `backend/data/gellery_encodings`
 1. `GMDB_gallery_encodings_20082024_v1.1.0_service.pkl`
 
 You need to place the separately distributed clinical data files into the backend/ directory.
@@ -160,12 +160,14 @@ See the [LICENSE.md](LICENSE.md) file for full details.
 
 The backend service of this project is based on the work of
 [GestaltMatcher](https://www.gestaltmatcher.org/) with their [repository](https://github.com/igsb/GestaltMatcher-Arc/).
-The backend service utilze the API of PubCaseFinder. See also [detailed description](https://pubcasefinder.dbcls.jp/api). The authoe is grateful for their foundational contributions to the field.
+The backend service utilizes the API of PubCaseFinder; see [detailed description](https://pubcasefinder.dbcls.jp/api). The authoe is grateful for their foundational contributions to the field.
+
+We would like to thank all participants and organizers of the [DBCLS BioHackathon 2025](https://2025.biohackathon.org/) (September 14-20, 2025, Mie, Japan) for their valuable discussions and support, which contributed significantly to the development of this project.
 
 ### **Author**
 
 * **Hiroyuki Mishima** (三嶋 博之)*
-*Department of Human Genetics, Atomic Bomb Disease Institute, Nagasaki University*  
+* Department of Human Genetics, Atomic Bomb Disease Institute, Nagasaki University*  
 * [Research Map Profile](https://researchmap.jp/misshie?lang=en)
 
 ## References
