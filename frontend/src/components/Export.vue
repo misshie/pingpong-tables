@@ -1,13 +1,12 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import * as XLSX from 'xlsx' // Import the xlsx library
   import { useStore } from '@/stores/app'
 
   const { t } = useI18n()
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const props = defineProps<{
+  defineProps<{
     modelValue: boolean
   }>()
 
@@ -18,7 +17,33 @@
   const store = useStore()
 
   // State to manage which dataset is selected for TSV export
-  const tsvExportSelection = ref<'genes' | 'syndromes' | 'patients'>('genes')
+  const tsvExportSelection = ref<'genes' | 'syndromes' | 'patients' | 'metadata'>('genes')
+
+  // --- NEW: Computed property to prepare metadata for export ---
+  const metadataItems = computed(() => {
+    if (!store.analysisResult) return []
+
+    const items = [
+      { parameter: 'Model Version', value_en: store.analysisResult.model_version, value_ja: '' },
+      { parameter: 'Gallery Version', value_en: store.analysisResult.gallery_version, value_ja: '' },
+    ]
+
+    const hpoIds = store.analysisResult.queried_hpo_ids
+    const hpoNames = store.analysisResult.pubcasefinder?.hpo_names
+
+    if (hpoIds && hpoNames) {
+      items.push({ parameter: '---', value_en: '---', value_ja: '---' }) // Separator
+      for (const hpoId of hpoIds) {
+        const names = hpoNames[hpoId]
+        items.push({
+          parameter: hpoId,
+          value_en: names?.name_en || '',
+          value_ja: names?.name_ja || '',
+        })
+      }
+    }
+    return items
+  })
 
   /**
    * Exports all available result lists to a single XLSX file with multiple sheets.
@@ -26,10 +51,15 @@
   function exportAsXLSX () {
     if (!store.analysisResult) return
 
-    // Create a new workbook
     const wb = XLSX.utils.book_new()
 
-    // Add a worksheet for each data list if it exists
+    // --- UPDATED: Add Metadata sheet if available ---
+    if (metadataItems.value.length > 0) {
+      const ws = XLSX.utils.json_to_sheet(metadataItems.value)
+      XLSX.utils.book_append_sheet(wb, ws, 'Metadata')
+    }
+
+    // Add other sheets as before
     if (store.analysisResult.suggested_syndromes_list) {
       const ws = XLSX.utils.json_to_sheet(store.analysisResult.suggested_syndromes_list)
       XLSX.utils.book_append_sheet(wb, ws, 'Syndromes')
@@ -38,22 +68,17 @@
       const ws = XLSX.utils.json_to_sheet(store.analysisResult.suggested_genes_list)
       XLSX.utils.book_append_sheet(wb, ws, 'Genes')
     }
-  if (store.analysisResult.suggested_patients_list) {
+    if (store.analysisResult.suggested_patients_list) {
       const ws = XLSX.utils.json_to_sheet(store.analysisResult.suggested_patients_list)
       XLSX.utils.book_append_sheet(wb, ws, 'Patients')
     }
 
-    // Trigger the download of the XLSX file
-    XLSX.writeFile(wb, 'gestaltmatcher_results.xlsx')
-
-    // Close the dialog after export
+    XLSX.writeFile(wb, 'piNGPong_tables_results.xlsx')
     emit('update:modelValue', false)
   }
 
   /**
    * Converts an array of objects to a TSV string and triggers a download.
-   * @param data - The array of data objects to convert.
-   * @param filename - The name of the file to be downloaded.
    */
   function downloadTSV (data: any[], filename: string) {
     if (data.length === 0) return
@@ -83,6 +108,10 @@
     if (!store.analysisResult) return
 
     switch (tsvExportSelection.value) {
+      case 'metadata': { // --- ADDED ---
+        downloadTSV(metadataItems.value, 'metadata.tsv')
+        break
+      }
       case 'genes': {
         downloadTSV(store.analysisResult.suggested_genes_list, 'genes.tsv')
         break
@@ -136,6 +165,7 @@
           v-model="tsvExportSelection"
           density="compact"
           :items="[
+            { title: 'Metadata', value: 'metadata' },
             { title: 'Genes', value: 'genes' },
             { title: 'Syndromes', value: 'syndromes' },
             { title: 'Patients', value: 'patients' }
