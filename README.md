@@ -10,10 +10,11 @@
 2. [For End-Users (Installation & Usage)](#for-end-users-installation--usage)  
 3. [For Developers](#for-end-users-installation--usage)
 4. [Technology Stack](#for-end-users-installation--usage)
-5. [License](#for-end-users-installation--usage)  
-6. [Acknowledgements](#acknowledgements)  
-7. [Author](#author)
-8. [References](#references)
+5. [License](#for-end-users-installation--usage)
+6. [Technology Stack](#technology-stack)
+7. [Acknowledgements](#acknowledgements)  
+8. [Author](#author)
+9. [References](#references)
 
 ----
 ### **Introduction**
