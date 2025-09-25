@@ -37,7 +37,7 @@ No front-end development environment is required.
 
 ### **Prerequisites**
 
-* Docker and Docker Compose must be installed on your system.
+* Docker must be installed on your system.
 
 ### **1. Get the Application**
 
