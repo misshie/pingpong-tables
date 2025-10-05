@@ -68,10 +68,11 @@ Place the following file in the `backend/data/gallery_encodings/` directory:
 The final file tree should look like this:
 
 ```
-pingpong-tables/  
-└── backend/  
-    ├── data/          <-- Place your data directory here  
-    ├── saved_models/  <-- Place your models directory here
+pingpong-tables/
+└── backend/
+    ├── data/
+    │   └── gallery_encodings/
+    ├── saved_models/
     └── ... (other backend files)
 ```
 
