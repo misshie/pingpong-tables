@@ -56,12 +56,12 @@ Place the following files in the `backend/saved_models/` directory:
 * `glint360k_r50.onnx` (base pre-trained model for model a)
 * `glint360k_r100.onnx` (base pre-trained model for model b)
 
-2. Trained Feature Space Models
+2. Trained Feature Space Models (Gallery)
 Place the following files in the `backend/data/` directory:
 * `s1_glint360k_r50_512d_gmdb__v1.1.0_bs64_size112_channels3_last_model.pth` (model a)
 * `s2_glint360k_r100_512d_gmdb__v1.1.0_bs128_size112_channels3_last_model.pth` (model b)
 
-3. Gallery Encodings
+3. Anotations for the Gallery Encodings
 Place the following file in the `backend/data/gallery_encodings/` directory:
 * `GMDB_gallery_encodings_20082024_v1.1.0_service.pkl`
 
