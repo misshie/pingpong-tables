@@ -43,27 +43,29 @@ No front-end development environment is required.
 
 Download latest release zip file and unzip.
 
-### **2. Place Trained Models**
+### **2. Required Models and Data**
 
 Due to ethical reasons the pretrained models are not made available publicly. \
-Once access has been granted to [GestaltMatcher Database (GMDB)](https://db.gestaltmatcher.org/), the pretrained model weights can be requested as well.
+Once access has been granted to [GestaltMatcher Database (GMDB)](https://db.gestaltmatcher.org/), the pretrained model weights and annotations can be requested as well.
 
-Save the following pretrained feauture extractor/encoder model files in `backend/saved_models/`
-1. `Resnet50_Final.pth` (for the face alignment)
-2. `glint360k_r50.onnx` (base pre-trained model for model a)
-3. `glint360k_r100.onnx` (base pre-trained model for model b)
+After obtaining the necessary files, please place them into the correct directories as follows:
 
-Trained feature space models by GestaltMatcher Database in `backend/data`
-1. `s1_glint360k_r50_512d_gmdb__v1.1.0_bs64_size112_channels3_last_model.pth` (model 1 for the encoding)
-2. `s2_glint360k_r100_512d_gmdb__v1.1.0_bs128_size112_channels3_last_model.pth` (model 2 for the encoding)
+1. Pretrained Feature Extractor (Encoder) Models
+Place the following files in the `backend/saved_models/` directory:
+* `Resnet50_Final.pth` (for face alignment)
+* `glint360k_r50.onnx` (base pre-trained model for model a)
+* `glint360k_r100.onnx` (base pre-trained model for model b)
 
-Gallery Encodings of annotation of each case by GestaltMatcher Database in `backend/data/gellery_encodings`
-1. `GMDB_gallery_encodings_20082024_v1.1.0_service.pkl`
+2. Trained Feature Space Models
+Place the following files in the `backend/data/` directory:
+* `s1_glint360k_r50_512d_gmdb__v1.1.0_bs64_size112_channels3_last_model.pth` (model a)
+* `s2_glint360k_r100_512d_gmdb__v1.1.0_bs128_size112_channels3_last_model.pth` (model b)
 
-You need to place the separately distributed clinical data files into the backend/ directory.
- Copy your data and saved\_models directories to the specified location.
+3. Gallery Encodings
+Place the following file in the `backend/data/gallery_encodings/` directory:
+* `GMDB_gallery_encodings_20082024_v1.1.0_service.pkl`
 
-The final structure should look like this:
+The final file tree should look like this:
 
 ```
 pingpong-tables/  
