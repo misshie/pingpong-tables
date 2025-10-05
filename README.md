@@ -124,7 +124,7 @@ This section is for developers who wish to contribute to the project.
    docker compose up --build
 ```
 
-   The frontend will now be available at http://localhost:3000 with hot-reloading enabled,
+   The frontend will now be available at `http://localhost:3000` with hot-reloading enabled,
    and it will communicate with the API server running inside Docker.
 
 ### **Building the Frontend**
