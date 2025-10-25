@@ -1,8 +1,8 @@
-# **piNGPong tables**
+# **NGPsuite**
 
 *Next-Generation Phenotyping powered by GestaltMatcher and PubCaseFinder*
 
-<img src="./assets/piNGPongTables.png" width="85%" alt="pingpon tables" />
+<img src="./assets/NGPsuite.png" width="85%" alt="NGP suite" />
 
 ## **Table of Contents**
 
@@ -19,7 +19,7 @@
 ----
 ## **Introduction**
 
-**piNGPong tables** is a web-based application designed to support the diagnosis of rare diseases.
+**NGPsuite** is a web-based application designed to support the diagnosis of rare diseases.
 It integrates facial phenotype analysis from images with clinical information (HPO IDs) to provide
 a comprehensive view for clinical geneticists and medical researchers.
 
@@ -27,7 +27,7 @@ The application leverages the analytical power of [GestaltMatcher](https://www.g
 and complements it with data from [PubCaseFinder](https://pubcasefinder.dbcls.jp/?lang=en) for HPO-based phenotypic analysis, offering a multi-modal
 approach to next-generation phenotyping.
 
-***piNGPong tables, GestaltMatcher, PubCaseFinder, and external information sources are intended for research and educational purposes only***.
+***NGPsuite, GestaltMatcher, PubCaseFinder, and external information sources are intended for research and educational purposes only***.
 
 ----
 ## **For End-Users (Installation & Usage)**
@@ -68,7 +68,7 @@ Place the following file in the `backend/data/gallery_encodings/` directory:
 The final file tree should look like this:
 
 ```
-pingpong-tables/
+ngp-suite/
 └── backend/
     ├── data/
     │   └── gallery_encodings/
@@ -82,8 +82,8 @@ Navigate to the backend directory and use Docker Compose to build and start the 
 
 ```
 cd backend  
-docker compose build  
-docker compose up -d     # without `-d`, you can watch logs on console.
+sudo docker compose build  
+sudo docker compose up -d     # without `-d`, you can watch logs on console.
 ```
 
 The initial startup may take about 90 seconds as the API service loads the models.
@@ -95,7 +95,7 @@ Once the startup process is complete, open your web browser and navigate to:
 
 #### **Security Warning on First Access**
 
-When you first access *piNGPong tables*, your browser may show a potential security warning due to our use of a self-signed certificate. This is a normal and expected behavior. To proceed, please click on the button labeled "Advanced" or "Proceed to..." and accept the certificate.
+When you first access *NGPsuite*, your browser may show a potential security warning due to our use of a self-signed certificate. This is a normal and expected behavior. To proceed, please click on the button labeled "Advanced" or "Proceed to..." and accept the certificate.
 
 ## **For Developers**
 
@@ -124,7 +124,7 @@ This section is for developers who wish to contribute to the project.
 ```
    In a separate terminal:  
    cd backend  
-   docker compose up --build
+   sudo docker compose up --build
 ```
 
    The frontend will now be available at `http://localhost:3000` with hot-reloading enabled,

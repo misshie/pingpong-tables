@@ -8,10 +8,10 @@ from requests.auth import HTTPBasicAuth
 
 def main():
     """
-    Main function to parse arguments and interact with the piNGPong tables API.
+    Main function to parse arguments and interact with the NGPsuite API.
     """
     parser = argparse.ArgumentParser(
-        description="A command-line client for the piNGPong tables API.",
+        description="A command-line client for the NGPsuite API.",
         formatter_class=argparse.RawTextHelpFormatter
     )
     parser.add_argument(
