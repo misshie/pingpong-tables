@@ -25,7 +25,7 @@
         <v-img
           class="mb-4 mx-auto"
           height="100"
-          src="@/assets/piNGPongTables-Avatar.png"
+          src="@/assets/NGPsuite-Avatar.png"
           style="max-width: 100px;"
         />
 

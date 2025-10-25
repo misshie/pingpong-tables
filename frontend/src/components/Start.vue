@@ -35,9 +35,9 @@
   // Related Resources
   const resources = [
     {
-      href: 'https://github.com/misshie/pingpong-tables',
+      href: 'https://github.com/misshie/ngp-suite',
       icon: 'mdi-github',
-      title: 'piNGPong tables GitHub repository',
+      title: 'NGPsuite GitHub repository',
     },
   ]
 
@@ -122,7 +122,7 @@
       <v-img
         class="mb-4 mx-auto"
         height="150"
-        src="@/assets/piNGPongTables.png"
+        src="@/assets/NGPsuite.png"
         style="max-width: 600px;"
       />
       <div class="text-body-1 font-weight-light mt-2 mb-6">

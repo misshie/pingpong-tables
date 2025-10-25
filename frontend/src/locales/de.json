@@ -1,5 +1,5 @@
 {
-  "appTitle": "piNGPong tables",
+  "appTitle": "NGPsuite",
   "nav": {
     "analysis": "Analyse",
     "export": "Ergebnisse exportieren",
@@ -64,13 +64,13 @@
     }
   },
   "aboutDialog": {
-    "title": "Über piNGPong tables",
+    "title": "Über NGPsuite",
     "programmedBy": "Programmiert von",
     "poweredBy": "Diese Anwendung wird von GestaltMatcher und PubCaseFinder unterstützt.",
-    "disclaimer": "piNGPong tables ist nur für <strong>Forschungs- und Bildungszwecke</strong> bestimmt."
+    "disclaimer": "NGPsuite ist nur für <strong>Forschungs- und Bildungszwecke</strong> bestimmt."
   },
   "footer": {
-    "caution": "piNGPong tables, GestaltMatcher, PubCaseFinder und andere Datenquellen sind nur für Forschungs- und Bildungszwecke bestimmt."
+    "caution": "NGPsuite, GestaltMatcher, PubCaseFinder und andere Datenquellen sind nur für Forschungs- und Bildungszwecke bestimmt."
   },
   "common": {
     "cancel": "Abbrechen",

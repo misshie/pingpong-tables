@@ -1,5 +1,5 @@
 {
-  "appTitle": "piNGPong tables",
+  "appTitle": "NGPsuite",
   "nav": {
     "analysis": "分析",
     "export": "匯出結果",
@@ -64,13 +64,13 @@
     }
   },
   "aboutDialog": {
-    "title": "關於 piNGPong tables",
+    "title": "關於 NGPsuite",
     "programmedBy": "編程者",
     "poweredBy": "此應用程式由GestaltMatcher和PubCaseFinder提供支援。",
-    "disclaimer": "piNGPong tables僅用於<strong>研究和教育目的。</strong>"
+    "disclaimer": "NGPsuite僅用於<strong>研究和教育目的。</strong>"
   },
   "footer": {
-    "caution": "piNGPong tables、GestaltMatcher、PubCaseFinder及其他資料來源僅用於研究和教育目的。"
+    "caution": "NGPsuite、GestaltMatcher、PubCaseFinder及其他資料來源僅用於研究和教育目的。"
   },
   "common": {
     "cancel": "取消",
