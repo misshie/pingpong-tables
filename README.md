@@ -2,9 +2,7 @@
 
 *Next-Generation Phenotyping powered by GestaltMatcher and PubCaseFinder*
 
-<!--
-<img src="./assets/NGPsuite.png" width="85%" alt="pingpon tables" />
--->
+<img src="./assets/NGPsuite.png" width="85%" alt="NGP suite" />
 
 ## **Table of Contents**
 
