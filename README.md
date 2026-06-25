@@ -85,6 +85,7 @@ ngp-suite/
 └── backend/
     ├── data/
     │   ├── gallery_encodings/
+    │   │   └── GMDB_gallery_encodings_23052026_v1.1.4_service.pkl
     │   ├── transformation_probabilities_07052025.csv
     │   └── image_gene_and_syndrome_metadata_pp4_23052026_v1.1.4.p
     ├── saved_models/
