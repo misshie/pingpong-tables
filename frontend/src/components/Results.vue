@@ -125,11 +125,35 @@
     return a - b
   }
 
+  const PP4_RANK: Record<string, number> = {
+    very_strong: 4,
+    strong: 3,
+    moderate: 2,
+    supporting: 1,
+  }
+
+  function pp4Rank (value: string | null | undefined) {
+    if (!value) return 0
+    const normalized = value.trim().toLowerCase().replace(/\s+/g, '_')
+    return PP4_RANK[normalized] ?? 0
+  }
+
+  /** Ascending: supporting → very_strong; descending: very_strong → supporting */
+  function pp4Sort (a: string | null | undefined, b: string | null | undefined) {
+    const aRank = pp4Rank(a)
+    const bRank = pp4Rank(b)
+    if (aRank === 0 && bRank === 0) return 0
+    if (aRank === 0) return 1
+    if (bRank === 0) return -1
+    return aRank - bRank
+  }
+
   const customRankSorters = {
     meta_rank: rankSort,
     gm_rank: rankSort,
     pubcasefinder_rank: rankSort,
     gm_score: rankSort,
+    ACMG_PP4: pp4Sort,
   }
 </script>
 
