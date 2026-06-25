@@ -66,17 +66,17 @@ Place the following files in the `backend/saved_models/` directory:
 
 2. Trained Feature Space Models (Gallery)
 Place the following files in the `backend/saved_models/` directory:
-* `s1_glint360k_r50_512d_gmdb__v1.1.2_bs64_size112_channels3_last_model.pth` (model a)
-* `s2_glint360k_r100_512d_gmdb__v1.1.2_bs128_size112_channels3_last_model.pth` (model b)
+* `s1_glint360k_r50_512d_gmdb__v1.1.4_bs64_size112_channels3_last_model.pth` (model a)
+* `s2_glint360k_r100_512d_gmdb__v1.1.4_bs128_size112_channels3_last_model.pth` (model b)
 
 3. Annotations for the Gallery Encodings
 Place the following file in the `backend/data/gallery_encodings/` directory:
-* `GMDB_gallery_encodings_v1.1.2_service.pkl`
+* `GMDB_gallery_encodings_23052026_v1.1.4_service.pkl`
 
-4. Additional data for GestaltMatcher-Arc v1.1.2
+4. Additional data for GestaltMatcher-Arc v1.1.4
 Place the following files in the `backend/data/` directory:
 * `transformation_probabilities_07052025.csv` (syndrome transformation probabilities for PP4)
-* `image_gene_and_syndrome_metadata_pp4_19112025_v112.p` (disorder/gene metadata)
+* `image_gene_and_syndrome_metadata_pp4_23052026_v1.1.4.p` (disorder/gene metadata)
 
 The final file tree should look like this:
 
@@ -86,7 +86,7 @@ ngp-suite/
     ├── data/
     │   ├── gallery_encodings/
     │   ├── transformation_probabilities_07052025.csv
-    │   └── image_gene_and_syndrome_metadata_pp4_19112025_v112.p
+    │   └── image_gene_and_syndrome_metadata_pp4_23052026_v1.1.4.p
     ├── saved_models/
     └── ... (other backend files)
 ```
