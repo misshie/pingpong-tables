@@ -13,6 +13,12 @@
   const patientSearch = ref('')
 
   type ReadonlyHeaders = VDataTable['$props']['headers']
+  type TableSortItem = {
+    key: string
+    order?: 'asc' | 'desc' | boolean
+  }
+
+  const syndromeSortBy = ref<TableSortItem[]>([{ key: 'gm_rank', order: 'asc' }])
 
   const tabs = computed(() => {
     if (!store.analysisResult) return []
@@ -138,14 +144,33 @@
     return PP4_RANK[normalized] ?? 0
   }
 
-  /** Ascending: supporting → very_strong; descending: very_strong → supporting */
-  function pp4Sort (a: string | null | undefined, b: string | null | undefined) {
+  function comparePp4Values (
+    a: string | null | undefined,
+    b: string | null | undefined,
+    order: 'asc' | 'desc',
+  ) {
     const aRank = pp4Rank(a)
     const bRank = pp4Rank(b)
-    if (aRank === 0 && bRank === 0) return 0
-    if (aRank === 0) return 1
-    if (bRank === 0) return -1
-    return aRank - bRank
+    const aMissing = aRank === 0
+    const bMissing = bRank === 0
+    if (aMissing && bMissing) return 0
+    if (aMissing) return 1
+    if (bMissing) return -1
+    const diff = aRank - bRank
+    return order === 'desc' ? -diff : diff
+  }
+
+  function getPp4SortOrder (): 'asc' | 'desc' {
+    const item = syndromeSortBy.value.find(sort => sort.key === 'ACMG_PP4')
+    return item?.order === 'desc' ? 'desc' : 'asc'
+  }
+
+  /** Undo Vuetify's desc operand swap so missing values always sort last. */
+  function pp4Sort (sortA: string | null | undefined, sortB: string | null | undefined) {
+    const order = getPp4SortOrder()
+    const a = order === 'desc' ? sortB : sortA
+    const b = order === 'desc' ? sortA : sortB
+    return comparePp4Values(a, b, order)
   }
 
   const customRankSorters = {
@@ -153,6 +178,10 @@
     gm_rank: rankSort,
     pubcasefinder_rank: rankSort,
     gm_score: rankSort,
+  }
+
+  const syndromeCustomSorters = {
+    ...customRankSorters,
     ACMG_PP4: pp4Sort,
   }
 </script>
@@ -223,13 +252,13 @@
               variant="solo-filled"
             />
             <v-data-table
-              :custom-key-sort="customRankSorters"
+              v-model:sort-by="syndromeSortBy"
+              :custom-key-sort="syndromeCustomSorters"
               density="compact"
               :headers="syndromeHeaders"
               item-value="syndrome_name"
               :items="syndromeTableItems"
               :search="syndromeSearch"
-              :sort-by="[{ key: 'gm_rank', order: 'asc' }]"
             >
               <template #item.gm_score="{ item }">{{ formatScore(item.gm_score) }}</template>
               <template #item.ACMG_PP4="{ item }">{{ item.ACMG_PP4 ?? '-' }}</template>
