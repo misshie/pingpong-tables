@@ -88,6 +88,11 @@ ngp-suite/
     │   ├── transformation_probabilities_07052025.csv
     │   └── image_gene_and_syndrome_metadata_pp4_23052026_v1.1.4.p
     ├── saved_models/
+    │   ├── Resnet50_Final.pth
+    │   ├── glint360k_r50.onnx
+    │   ├── glint360k_r100.onnx
+    │   ├── s1_glint360k_r50_512d_gmdb__v1.1.4_bs64_size112_channels3_last_model.pth
+    │   └── s2_glint360k_r100_512d_gmdb__v1.1.4_bs128_size112_channels3_last_model.pth
     └── ... (other backend files)
 ```
 
