@@ -1,11 +1,12 @@
 <script setup lang="ts">
   import type { VDataTable } from 'vuetify/components'
-  import { computed, ref, watch } from 'vue'
+  import { computed, inject, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useStore } from '@/stores/app'
 
   const { t } = useI18n()
   const store = useStore()
+  const openExport = inject<() => void>('openExport')
 
   const tab = ref('Syndromes')
   const geneSearch = ref('')
@@ -230,11 +231,23 @@
       </v-card-text>
       <v-divider />
 
-      <v-tabs v-model="tab" bg-color="tertiary">
-        <v-tab v-for="item in tabs" :key="item.key" :value="item.key">
-          {{ t(item.labelKey) }} ({{ item.count }})
-        </v-tab>
-      </v-tabs>
+      <div class="d-flex align-center bg-tertiary">
+        <v-tabs v-model="tab" bg-color="tertiary" class="flex-grow-1">
+          <v-tab v-for="item in tabs" :key="item.key" :value="item.key">
+            {{ t(item.labelKey) }} ({{ item.count }})
+          </v-tab>
+        </v-tabs>
+        <v-btn
+          class="text-none me-2"
+          color="surface"
+          prepend-icon="mdi-export"
+          size="small"
+          variant="flat"
+          @click="openExport?.()"
+        >
+          {{ t('nav.export') }}
+        </v-btn>
+      </div>
 
       <v-card-text>
         <v-window v-model="tab">

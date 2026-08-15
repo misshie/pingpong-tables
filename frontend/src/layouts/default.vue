@@ -46,6 +46,11 @@
   }
   provide('openAnalysis', openAnalysis)
 
+  function openExport () {
+    isExportOpen.value = true
+  }
+  provide('openExport', openExport)
+
 </script>
 
 <template>
